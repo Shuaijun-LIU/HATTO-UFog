@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments (only at root level)
+venv/
+env/
+ENV/
+.venv/
+# But allow code directories named env
+!**/framework/env/
+!**/src/env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Framework internal documentation (not for public repo)
+Framework/FRAMEWORK_IMPLEMENTATION_PLAN.md
+Framework/ISSUE_LOG.md

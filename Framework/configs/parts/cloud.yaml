@@ -1,0 +1,5 @@
+cloud:
+  enabled: false
+  x_m: 0.0
+  y_m: 0.0
+  z_m: 500.0
