@@ -1,6 +1,7 @@
 include:
   - parts/world.yaml
   - parts/sim.yaml
+  - parts/wind.yaml
   - parts/dynamics.yaml
   - parts/control.yaml
   - parts/fuzzy_rules.yaml

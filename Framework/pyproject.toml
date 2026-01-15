@@ -1,5 +1,5 @@
 [project]
-name = "hatto-ufog-framework"
+name = "hatto-ufog_network-framework"
 version = "3.1.2"
 description = "UAV-assisted fog computing experiment framework (Parquet + JSON logging)"
 readme = "README.md"
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ufog = "framework.cli:main"
+ufog_network = "ufog_network.cli:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]

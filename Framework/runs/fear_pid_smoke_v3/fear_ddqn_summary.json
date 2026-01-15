@@ -1,0 +1,8 @@
+{
+  "episodes": 8,
+  "total_reward": -113.48623095090143,
+  "model_path": "/data/private/user2/workspace/UAV/HATTO-UFog/Framework/runs/fear_pid_smoke_v3/fear_ddqn.pt",
+  "action_mode": "scale",
+  "action_deltas": null,
+  "env_mode": "attitude"
+}

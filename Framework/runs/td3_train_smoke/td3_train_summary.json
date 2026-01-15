@@ -1,0 +1,6 @@
+{
+  "steps": 300,
+  "total_reward": -33464925818.41089,
+  "actor_path": "/data/private/user2/workspace/UAV/HATTO-UFog/Framework/runs/td3_train_smoke/td3_actor.pt",
+  "critic_path": "/data/private/user2/workspace/UAV/HATTO-UFog/Framework/runs/td3_train_smoke/td3_critic.pt"
+}

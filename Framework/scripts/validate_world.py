@@ -3,9 +3,9 @@ from __future__ import annotations
 
 import argparse
 
-from framework.config import load_config
-from framework.env.generators import generate_world
-from framework.utils.validation import validate_world, validate_waypoint_edges, world_fingerprint
+from ufog_network.config import load_config
+from ufog_network.env.generators import generate_world
+from ufog_network.utils.validation import validate_world, validate_waypoint_edges, world_fingerprint
 
 
 def main() -> int:

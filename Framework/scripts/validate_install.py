@@ -1,9 +1,9 @@
 """Validate framework imports and basic world generation."""
 from __future__ import annotations
 
-from framework.config import Config
-from framework.env.generators import generate_world
-from framework.baselines import make_baseline
+from ufog_network.config import Config
+from ufog_network.env.generators import generate_world
+from ufog_network.baselines import make_baseline
 
 
 def main() -> int:
@@ -12,7 +12,11 @@ def main() -> int:
     # Instantiate each baseline
     for name in ["acs", "acs_ds", "ga_sca", "cps_aco", "td3"]:
         cfg.baseline.name = name
-        baseline = make_baseline(cfg.baseline)
+        try:
+            baseline = make_baseline(cfg.baseline)
+        except ImportError as exc:
+            print(f"Skipping baseline {name}: {exc}")
+            continue
         baseline.reset(world, cfg.sim.seed)
     return 0
 

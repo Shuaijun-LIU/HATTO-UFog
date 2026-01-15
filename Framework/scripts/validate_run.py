@@ -4,9 +4,9 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from framework.config import load_config
-from framework.sim.simulator import Simulator
-from framework.utils.validation import validate_timeseries_schema, schema_missing
+from ufog_network.config import load_config
+from ufog_network.sim.simulator import Simulator
+from ufog_network.utils.validation import validate_timeseries_schema, schema_missing
 
 
 def main() -> int:

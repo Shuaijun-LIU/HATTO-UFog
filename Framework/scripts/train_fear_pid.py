@@ -3,8 +3,8 @@ from __future__ import annotations
 
 import argparse
 
-from framework.config import load_config
-from framework.control.ddqn import DDQNConfig, train_ddqn_gain_adjuster
+from ufog_network.config import load_config
+from ufog_network.control.ddqn import DDQNConfig, train_ddqn_gain_adjuster
 
 
 def main() -> int:

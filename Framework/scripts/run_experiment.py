@@ -4,9 +4,9 @@ from __future__ import annotations
 import argparse
 import json
 
-from framework.config import load_config
-from framework.sim.simulator import Simulator
-from framework.io import import_world
+from ufog_network.config import load_config
+from ufog_network.sim.simulator import Simulator
+from ufog_network.io import import_world
 
 
 def main() -> None:

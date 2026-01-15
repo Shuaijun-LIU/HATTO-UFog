@@ -3,6 +3,9 @@ tasks:
   md_distribution: fixed
   md_density: 5.0e-5
   md_min_count: 1
+  md_require_waypoint: true
+  md_waypoint_max_dist_m: 15.0
+  md_waypoint_require_los: true
   arrival_rate: 0.6
   arrival_rate_mode: fixed
   task_size_dist: exponential

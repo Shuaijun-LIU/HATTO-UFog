@@ -1,9 +1,9 @@
 control:
   fuzzy_labels: [NB, NM, NS, ZO, PS, PM, PB]
   fuzzy_centers: [-6, -4, -2, 0, 2, 4, 6]
-  fuzzy_label_values_kp: [-3, -2, -1, 0, 1, 2, 3]
-  fuzzy_label_values_ki: [-1.5, -1, -1, 0, 1, 1, 1.5]
-  fuzzy_label_values_kd: [-3, -2, -1, 0, 1, 2, 3]
+  fuzzy_label_values_kp: [-0.84, -0.56, -0.28, 0, 0.28, 0.56, 0.84]
+  fuzzy_label_values_ki: [-0.28, -0.175, -0.105, 0, 0.105, 0.175, 0.28]
+  fuzzy_label_values_kd: [-0.7, -0.49, -0.245, 0, 0.245, 0.49, 0.7]
   fuzzy_rule_table:
     - ["PB/NB/PS", "PB/NB/NS", "PM/NM/NB", "PM/NM/NB", "PS/NS/NB", "ZO/ZO/NM", "ZO/ZO/PS"]
     - ["PB/NB/PS", "PB/NB/NS", "PM/NM/NB", "PS/NS/NM", "PS/NS/NM", "ZO/ZO/NS", "NS/PS/ZO"]
