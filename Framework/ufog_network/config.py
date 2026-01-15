@@ -89,8 +89,8 @@ class TaskConfig:
     md_distribution: str = "fixed"  # fixed | poisson
     md_density: float = 5e-5
     md_min_count: int = 1
-    md_require_waypoint: bool = True
-    md_waypoint_max_dist_m: float = 15.0
+    md_require_waypoint: bool = False
+    md_waypoint_max_dist_m: float = 80.0
     md_waypoint_require_los: bool = True
     arrival_rate: float = 0.6
     arrival_rate_mode: str = "fixed"  # fixed | sampled
@@ -176,6 +176,7 @@ class SimConfig:
     decision_dt_s: float = 0.1
     control_dt_s: float = 0.01
     steps: int = 600
+    stop_when_all_md_visited: bool = False
     epsilon: float = 0.2
     seed: int = 1234
     max_speed_m_s: float = 20.0

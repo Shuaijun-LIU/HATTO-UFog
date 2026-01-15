@@ -1,0 +1,27 @@
+{
+  "run_id": "acs_20260115_231120",
+  "steps": 600,
+  "battery_wh_end": 4978.696312241806,
+  "baseline": "acs",
+  "totals": {
+    "E_total": 76693.27592952426,
+    "E_mov": 37016.943891051815,
+    "E_tr": 5325.266295293675,
+    "E_comp": 34351.065743178835,
+    "D_total": 66672237161.071884,
+    "D_tr": 5325.266295293675,
+    "D_comp": 35782.36014914462,
+    "D_q": 100480.91524297885,
+    "D_uavq": 66672095572.53018,
+    "S": 66672252499.72704,
+    "viol_speed": 0,
+    "viol_alt": 0,
+    "viol_battery": 0,
+    "viol_obstacle": 0,
+    "viol_att": 0,
+    "viol_angrate": 0,
+    "viol_rotor": 0
+  },
+  "all_md_visited": false,
+  "unique_md_visited": 0
+}

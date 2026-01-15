@@ -151,7 +151,13 @@ class GASCABaseline(Baseline):
         path = shortest_path(graph.nodes, graph.edges, start_idx, goal_idx)
         if not path:
             return [goal]
-        return [graph.nodes[i] for i in path[1:]]
+        coords = [graph.nodes[i] for i in path[1:]]
+        if not coords:
+            return [goal]
+        last = coords[-1]
+        if (last[0] - goal[0]) ** 2 + (last[1] - goal[1]) ** 2 + (last[2] - goal[2]) ** 2 > 1e-6:
+            coords.append(goal)
+        return coords
 
     def _nearest_node(self, point: Tuple[float, float, float]) -> int:
         nodes = self.world.waypoints.nodes
@@ -198,9 +204,18 @@ class GASCABaseline(Baseline):
             if not self.current_path:
                 self.current_path = [goal]
 
-        next_wp = self.current_path.pop(0)
-        # Advance sequence if close to goal
         reach = float(self.params.get("goal_reach_m", 8.0))
+        while self.current_path:
+            next_wp = self.current_path[0]
+            if math.sqrt((pos[0] - next_wp[0]) ** 2 + (pos[1] - next_wp[1]) ** 2 + (pos[2] - next_wp[2]) ** 2) <= reach:
+                self.current_path.pop(0)
+                continue
+            break
+        if not self.current_path:
+            next_wp = goal
+        else:
+            next_wp = self.current_path[0]
+        # Advance sequence if close to goal
         if math.sqrt((pos[0] - goal[0]) ** 2 + (pos[1] - goal[1]) ** 2 + (pos[2] - goal[2]) ** 2) < reach:
             self.sequence_idx += 1
             self.current_path = []

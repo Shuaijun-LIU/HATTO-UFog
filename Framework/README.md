@@ -20,6 +20,7 @@ Validation scripts (no auto-run):
 python scripts/validate_install.py
 python scripts/validate_world.py --config configs/default_split.yaml
 python scripts/validate_run.py --config configs/default_split.yaml --output runs/validate
+python scripts/analyze_md_waypoints.py --config configs/default_split.yaml
 ```
 
 Outputs:
@@ -33,6 +34,7 @@ Parameter storage:
 - `runs/<run_id>/config.json` (resolved config snapshot for each run)
 - `configs/default_split.yaml` + `configs/parts/*.yaml` (split configs; loaded via include list)
   - Resource allocation parameters live in `configs/parts/resource.yaml`.
+  - MD placement constraints live in `configs/parts/tasks.yaml`.
 
 To enable rigid-body dynamics with attitude control, set in config:
 ```yaml

@@ -13,6 +13,8 @@ baseline:
       alpha: 1.0
       beta: 2.0
       rho: 0.2
+      reachable_candidates: 0
+      waypoint_reach_m: 8.0
     acs_ds:
       ants: 30
       iterations: 40
@@ -21,6 +23,7 @@ baseline:
       rho: 0.2
       segment_step_m: 2.0
       reachable_candidates: 0
+      waypoint_reach_m: 8.0
       replan_interval_steps: 1
       safety_samples: 30
       safety_radius_m: 120.0
@@ -52,6 +55,8 @@ baseline:
       threat_near_penalty: 10.0
       threat_far_scale: 1.0
       alt_jump_threshold_m: 20.0
+      reachable_candidates: 0
+      waypoint_reach_m: 8.0
     ga_sca:
       population: 40
       generations: 50
@@ -61,6 +66,7 @@ baseline:
       sca_iters: 80
       threat_weight: 20.0
       goal_reach_m: 8.0
+      waypoint_reach_m: 8.0
       max_targets: 50
     td3:
       obs_dim: 10

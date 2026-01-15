@@ -34,6 +34,20 @@ class ACSBaseline(Baseline):
                 best_idx = i
         return best_idx
 
+    def _nearest_reachable_node(self, point: Tuple[float, float, float]) -> int:
+        nodes = self.graph.nodes
+        candidates = sorted(
+            range(len(nodes)),
+            key=lambda i: (nodes[i][0] - point[0]) ** 2 + (nodes[i][1] - point[1]) ** 2 + (nodes[i][2] - point[2]) ** 2,
+        )
+        limit = int(self.params.get("reachable_candidates", 0))
+        if limit > 0:
+            candidates = candidates[: min(limit, len(candidates))]
+        for idx in candidates:
+            if self.world.segment_is_free(point, nodes[idx], step=self.world.cfg.connect_step_m):
+                return idx
+        return self._nearest_node(point)
+
     def _build_path(self, start_idx: int, goal_idx: int) -> List[int]:
         n = len(self.graph.nodes)
         if self.pheromone is None:
@@ -110,12 +124,28 @@ class ACSBaseline(Baseline):
             return Action(target=target, info={"status": "ok", "target_idx": target_idx})
 
         if not self.current_path:
-            start = self._nearest_node(pos)
+            start = self._nearest_reachable_node(pos)
             goal = self._nearest_node(target)
             node_path = self._build_path(start, goal)
             self.current_path = [self.graph.nodes[i] for i in node_path]
+            if not self.current_path:
+                self.current_path = [target]
+            else:
+                last = self.current_path[-1]
+                if (last[0] - target[0]) ** 2 + (last[1] - target[1]) ** 2 + (last[2] - target[2]) ** 2 > 1e-6:
+                    self.current_path.append(target)
 
-        next_wp = self.current_path.pop(0)
+        reach = float(self.params.get("waypoint_reach_m", 8.0))
+        while self.current_path:
+            next_wp = self.current_path[0]
+            if math.sqrt((pos[0] - next_wp[0]) ** 2 + (pos[1] - next_wp[1]) ** 2 + (pos[2] - next_wp[2]) ** 2) <= reach:
+                self.current_path.pop(0)
+                continue
+            break
+        if not self.current_path:
+            next_wp = target
+        else:
+            next_wp = self.current_path[0]
         return Action(target=next_wp, info={"status": "ok", "target_idx": target_idx})
 
     def plan(self, state: Dict[str, Any]) -> Dict[str, Any]:
@@ -127,7 +157,14 @@ class ACSBaseline(Baseline):
         target = targets[target_idx]
         if not self.graph or not self.graph.nodes:
             return {"status": "ok", "path": [target], "target_idx": target_idx}
-        start = self._nearest_node(pos)
+        start = self._nearest_reachable_node(pos)
         goal = self._nearest_node(target)
         node_path = self._build_path(start, goal)
-        return {"status": "ok", "path": [self.graph.nodes[i] for i in node_path], "target_idx": target_idx}
+        path = [self.graph.nodes[i] for i in node_path]
+        if not path:
+            path = [target]
+        else:
+            last = path[-1]
+            if (last[0] - target[0]) ** 2 + (last[1] - target[1]) ** 2 + (last[2] - target[2]) ** 2 > 1e-6:
+                path.append(target)
+        return {"status": "ok", "path": path, "target_idx": target_idx}

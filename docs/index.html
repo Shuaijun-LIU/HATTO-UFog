@@ -1,176 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing</title>
-  <meta name="description" content="A holistic UAV-assisted fog computing framework that jointly optimizes attitude control, trajectory planning, resource allocation, and task assignment." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing - Liu et al.">
+  <meta name="description" content="Holistic UAV-assisted fog computing framework that jointly optimizes attitude control, trajectory planning, resource allocation, and task assignment to cut latency and energy.">
+  <meta name="keywords" content="UAV, fog computing, attitude control, trajectory planning, resource allocation, task assignment, ant colony system, PSO, energy efficiency">
+  <meta name="author" content="Shuaijun Liu, Jinqiu Du, Yaxin Zheng, Jiaying Yin, Yuhui Deng, Jingjin Wu">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="UAV-Assisted Fog Computing">
+  <meta property="og:title" content="Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing">
+  <meta property="og:description" content="Holistic UAV-assisted fog computing framework that jointly optimizes attitude control, trajectory planning, resource allocation, and task assignment to cut latency and energy.">
+  <meta property="og:url" content="https://shuaijun-liu.github.io/HATTO-UFog/">
+  <meta property="og:image" content="https://shuaijun-liu.github.io/HATTO-UFog/assets/sim_web.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="UAV-assisted fog computing overview">
+  <meta property="article:published_time" content="2024-07-01T00:00:00.000Z">
+  <meta property="article:author" content="Shuaijun Liu">
+  <meta property="article:section" content="Networking">
+  <meta property="article:tag" content="UAV">
+  <meta property="article:tag" content="Fog Computing">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing">
+  <meta name="twitter:description" content="Holistic UAV-assisted fog computing framework that jointly optimizes attitude control, trajectory planning, resource allocation, and task assignment to cut latency and energy.">
+  <meta name="twitter:image" content="https://shuaijun-liu.github.io/HATTO-UFog/assets/sim_web.png">
+  <meta name="twitter:image:alt" content="UAV-assisted fog computing overview">
+
+  <meta name="citation_title" content="Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing: Attitude, Trajectory, and Task Assignment">
+  <meta name="citation_author" content="Liu, Shuaijun">
+  <meta name="citation_author" content="Du, Jinqiu">
+  <meta name="citation_author" content="Zheng, Yaxin">
+  <meta name="citation_author" content="Yin, Jiaying">
+  <meta name="citation_author" content="Deng, Yuhui">
+  <meta name="citation_author" content="Wu, Jingjin">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="Computer Networks">
+  <meta name="citation_pdf_url" content="https://shuaijun-liu.github.io/HATTO-UFog/assets/paper.pdf">
+
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing | Academic Project Page</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing: Attitude, Trajectory, and Task Assignment",
+    "description": "Holistic UAV-assisted fog computing framework that jointly optimizes attitude control, trajectory planning, resource allocation, and task assignment to cut latency and energy.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Shuaijun Liu",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Boston University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Jinqiu Du",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Washington"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Yaxin Zheng",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Columbia University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Jiaying Yin",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Sun Yat-Sen University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Yuhui Deng",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Beijing Normal-Hong Kong Baptist University"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Jingjin Wu",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Beijing Normal-Hong Kong Baptist University"
+        }
+      }
+    ],
+    "datePublished": "2024-07-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Computer Networks"
+    },
+    "url": "https://shuaijun-liu.github.io/HATTO-UFog/",
+    "image": "https://shuaijun-liu.github.io/HATTO-UFog/assets/sim_web.png",
+    "keywords": ["UAV", "Fog Computing", "Attitude Control", "Trajectory Planning", "Task Assignment"],
+    "abstract": "Unmanned Aerial Vehicles (UAVs) have significantly enhanced fog computing by acting as both flexible computation platforms and communication mobile relays. We jointly optimize attitude control, trajectory planning, resource allocation, and task assignment in a 3D terrain-aware network to reduce latency and energy consumption.",
+    "citation": "@article{liu2024energy, title={Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing: Attitude, Trajectory, and Task Assignment}, author={Liu, Shuaijun and Du, Jinqiu and Zheng, Yaxin and Yin, Jiaying and Deng, Yuhui and Wu, Jingjin}, journal={arXiv preprint arXiv:2407.14894}, year={2024}, url={https://arxiv.org/abs/2407.14894} }",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://shuaijun-liu.github.io/HATTO-UFog/"
+    }
+  }
+  </script>
 </head>
 <body>
-  <div class="bg-orbit"></div>
-  <div class="bg-grid"></div>
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
-  <header class="hero" id="top">
-    <nav class="nav">
-      <div class="brand">UAV Fog Computing</div>
-      <div class="nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#approach">Approach</a>
-        <a href="#results">Results</a>
-        <a href="#assets">Assets</a>
-      </div>
-    </nav>
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing</h1>
+              <h2 class="subtitle is-4">Attitude, Trajectory, and Task Assignment</h2>
 
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="eyebrow">Computer Networks - UAV-Assisted Fog Computing</p>
-        <h1>Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing</h1>
-        <p class="subtitle">
-          A unified framework that couples attitude control, trajectory planning, resource allocation, and task assignment
-          to reduce latency and energy consumption in terrain-aware 3D UAV fog networks.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="assets/body.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
-          <a class="btn ghost" href="#assets">Browse Figures</a>
-        </div>
-        <div class="hero-metrics">
-          <div>
-            <span class="metric">4</span>
-            <span class="label">Coupled Modules</span>
-          </div>
-          <div>
-            <span class="metric">67%+</span>
-            <span class="label">Efficiency Gain</span>
-          </div>
-          <div>
-            <span class="metric">3D</span>
-            <span class="label">Terrain-Aware Network</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-figure">
-        <img src="assets/sim_web.png" alt="UAV-assisted fog computing simulation overview" />
-        <span class="figure-caption">System simulation environment snapshot.</span>
-      </div>
-    </div>
-  </header>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Shuaijun Liu<sup>1</sup>,</span>
+                <span class="author-block">Jinqiu Du<sup>2</sup>,</span>
+                <span class="author-block">Yaxin Zheng<sup>3</sup>,</span>
+                <span class="author-block">Jiaying Yin<sup>4</sup>,</span>
+                <span class="author-block">Yuhui Deng<sup>5</sup>,</span>
+                <span class="author-block">Jingjin Wu<sup>5</sup></span>
+              </div>
 
-  <main>
-    <section id="overview" class="section">
-      <div class="section-header">
-        <h2>Overview</h2>
-        <p>
-          We study a UAV-enabled fog computing system where a single UAV acts as both a mobile relay and a fog node.
-          The framework jointly optimizes attitude control, trajectory planning, resource allocation, and task assignment,
-          ensuring decisions in one module improve outcomes in the others.
-        </p>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Attitude Control</h3>
-          <p>FEAR-PID improves stability for takeoff, cruising, and landing under dynamic conditions.</p>
-        </article>
-        <article class="card">
-          <h3>Trajectory Planning</h3>
-          <p>ACS-DS adds decoupling and safety values to accelerate convergence and avoid local optima.</p>
-        </article>
-        <article class="card">
-          <h3>Task Assignment</h3>
-          <p>PSO-based allocation balances computation between IoT devices, UAV, and cloud.</p>
-        </article>
-        <article class="card">
-          <h3>Joint Optimization</h3>
-          <p>Cross-layer decisions reduce latency and energy consumption across the full mission.</p>
-        </article>
-      </div>
-    </section>
+              <div class="is-size-6 publication-authors">
+                <span class="author-block"><sup>1</sup>Boston University</span>
+                <span class="author-block"><sup>2</sup>University of Washington</span>
+                <span class="author-block"><sup>3</sup>Columbia University</span>
+                <span class="author-block"><sup>4</sup>Sun Yat-Sen University</span>
+                <span class="author-block"><sup>5</sup>Beijing Normal-Hong Kong Baptist University</span>
+              </div>
 
-    <section id="approach" class="section dark">
-      <div class="section-header">
-        <h2>Holistic Framework</h2>
-        <p>
-          The system integrates control, networking, and computation modules in a tightly coupled loop.
-          The UAV attitude influences communication quality, which feeds trajectory updates and task offloading decisions.
-        </p>
-      </div>
-      <div class="split">
-        <div>
-          <h3>Key Contributions</h3>
-          <ul>
-            <li>Unified optimization across attitude, trajectory, resource allocation, and task assignment.</li>
-            <li>FEAR-PID for adaptive, stable UAV attitude management.</li>
-            <li>ACS-DS trajectory planning with decoupling and safety-aware search.</li>
-            <li>PSO-based offloading and resource allocation under realistic constraints.</li>
-          </ul>
-        </div>
-        <div class="stat-panel">
-          <h3>Highlights</h3>
-          <div class="stat">
-            <span class="metric">Latency</span>
-            <span class="value">v</span>
+              <div class="is-size-6">Computer Networks (Elsevier)</div>
+              <div class="is-size-6">Corresponding author: Jingjin Wu</div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="assets/paper.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/Shuaijun-LIU/HATTO-UFog" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fab fa-github"></i></span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://shuaijun-liu.github.io/UAV-Assisted-Fog-Computing-Simulation-Demo" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-play-circle"></i></span>
+                      <span>Demo</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/2407.14894" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="ai ai-arxiv"></i></span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="stat">
-            <span class="metric">Energy</span>
-            <span class="value">v</span>
-          </div>
-          <div class="stat">
-            <span class="metric">Reliability</span>
-            <span class="value">^</span>
-          </div>
-          <p class="small">Extensive simulations show major efficiency gains over mainstream baselines.</p>
         </div>
       </div>
     </section>
 
-    <section id="results" class="section">
-      <div class="section-header">
-        <h2>Results</h2>
-        <p>Representative simulation outcomes from the UAV-assisted fog computing testbed.</p>
-      </div>
-      <div class="figure-grid">
-        <figure>
-          <img src="assets/sim_results_control.png" alt="Control performance results" />
-          <figcaption>Attitude control stability and convergence behavior.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/sim_results_path.png" alt="Trajectory planning results" />
-          <figcaption>Trajectory planning efficiency under varying task loads.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/sim_airsim.png" alt="AirSim simulation view" />
-          <figcaption>AirSim-based 3D UAV fog computing environment.</figcaption>
-        </figure>
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img src="assets/sim_web.png" alt="UAV-assisted fog computing system overview" loading="lazy">
+          <h2 class="subtitle has-text-centered">
+            Overview of the UAV-assisted fog computing environment with joint attitude, trajectory, and task assignment optimization.
+          </h2>
+        </div>
       </div>
     </section>
 
-    <section id="assets" class="section dark">
-      <div class="section-header">
-        <h2>Assets & Materials</h2>
-        <p>All figures below are directly loaded from the paper folder for easy GitHub Pages deployment.</p>
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Unmanned Aerial Vehicles (UAVs) have significantly enhanced fog computing by acting as both flexible computation
+                platforms and communication mobile relays. We consider four interdependent modules: attitude control, trajectory
+                planning, resource allocation, and task assignment, and propose a holistic framework that jointly optimizes total
+                latency and energy consumption for UAV-assisted fog computing in a three-dimensional spatial domain with varying
+                terrain elevations and dynamic task generations. We establish a fuzzy-enhanced adaptive reinforcement PID control
+                model for attitude management, propose an ACS-based trajectory algorithm with decoupling and safety values, and
+                design a PSO-based algorithm for task execution placement. Extensive simulations show significant latency and
+                energy improvements over mainstream approaches.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="asset-list">
-        <a href="assets/sim_web.png" target="_blank" rel="noopener">sim_web.png</a>
-        <a href="assets/sim_airsim.png" target="_blank" rel="noopener">sim_airsim.png</a>
-        <a href="assets/sim_results_control.png" target="_blank" rel="noopener">sim_results_control.png</a>
-        <a href="assets/sim_results_path.png" target="_blank" rel="noopener">sim_results_path.png</a>
-        <a href="assets/body.pdf" target="_blank" rel="noopener">body.pdf (paper)</a>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Method Overview</h2>
+        <div class="columns is-multiline">
+          <div class="column is-one-third">
+            <div class="content">
+              <h4>Attitude Control</h4>
+              <p>FEAR-PID maintains stable UAV orientation under dynamic flight conditions to protect link quality.</p>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="content">
+              <h4>Trajectory Planning</h4>
+              <p>ACS-DS integrates decoupling and safety values to avoid deadlocks and accelerate convergence.</p>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="content">
+              <h4>Task Assignment</h4>
+              <p>PSO-based allocation decides where tasks execute across devices, UAV, and cloud.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+        <div class="columns is-multiline is-centered">
+          <div class="column is-half">
+            <figure>
+              <img src="assets/sim_results_control.png" alt="Attitude control performance" loading="lazy">
+              <figcaption class="has-text-centered">Attitude control stability and convergence.</figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <img src="assets/sim_results_path.png" alt="Trajectory planning results" loading="lazy">
+              <figcaption class="has-text-centered">Trajectory planning efficiency under varying task loads.</figcaption>
+            </figure>
+          </div>
+          <div class="column is-half">
+            <figure>
+              <img src="assets/sim_airsim.png" alt="AirSim simulation" loading="lazy">
+              <figcaption class="has-text-centered">AirSim-based 3D simulation environment.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@article{liu2024energy,
+  title={Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing: Attitude, Trajectory, and Task Assignment},
+  author={Liu, Shuaijun and Du, Jinqiu and Zheng, Yaxin and Yin, Jiaying and Deng, Yuhui and Wu, Jingjin},
+  journal={arXiv preprint arXiv:2407.14894},
+  year={2024},
+  url={https://arxiv.org/abs/2407.14894}
+}</code></pre>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div>
-      <strong>Authors:</strong> Shuaijun Liu, Jinqiu Du, Yaxin Zheng, Jiaying Yin, Yuhui Deng, Jingjin Wu
-    </div>
-    <div>
-      <strong>Venue:</strong> Computer Networks (Elsevier)
-    </div>
-    <div class="footer-links">
-      <a href="#top">Back to top</a>
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
+              adapted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 </body>

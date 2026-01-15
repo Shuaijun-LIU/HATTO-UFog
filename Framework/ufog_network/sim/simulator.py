@@ -57,6 +57,8 @@ class Simulator:
         self.target_idx = 0
         self.slot_idx = 0
         self.time_s = 0.0
+        self.visited_md = set()
+        self.all_md_visited = False
         self._init_uav_state()
         self.last_control = None
         if self.cfg.dynamics.mode == "rigid_body":
@@ -118,12 +120,16 @@ class Simulator:
     def _advance_target_if_reached(self, target: Tuple[float, float, float]) -> None:
         dist = float(np.linalg.norm(self.state.pos - np.array(target)))
         if dist <= self.cfg.sim.reach_threshold_m:
+            md_idx = self.target_order[self.target_idx]
+            self.visited_md.add(md_idx)
+            if len(self.visited_md) >= len(self.md_positions):
+                self.all_md_visited = True
             self.target_idx += 1
             if self.target_idx >= len(self.target_order):
                 self.target_order = self._init_target_order()
                 self.target_idx = 0
 
-    def _safe_target(self, target: Tuple[float, float, float]) -> Tuple[Tuple[float, float, float], bool]:
+    def _safe_target(self, target: Tuple[float, float, float], allow_graph_reroute: bool = True) -> Tuple[Tuple[float, float, float], bool]:
         cur = tuple(self.state.pos)
         x, y, z = target
         min_z = self._min_safe_altitude(x, y, 0.0)
@@ -136,8 +142,15 @@ class Simulator:
         check_step = min(self.world.cfg.connect_step_m, max_step)
         if self.world.segment_is_free(cur, target, step=check_step):
             return target, False
+        # Try to approach above the target (vertical descent), if feasible.
+        x, y, z = target
+        approach_z = self._min_safe_altitude(x, y, self.cfg.sim.reroute_altitude_margin_m)
+        approach_z = min(self.world.cfg.height_m, max(z, approach_z))
+        approach = (x, y, approach_z)
+        if self.world.segment_is_free(cur, approach, step=check_step):
+            return approach, True
         # Try waypoint graph routing if available
-        if self.world.waypoints and self.world.waypoints.nodes:
+        if allow_graph_reroute and self.world.waypoints and self.world.waypoints.nodes:
             graph = self.world.waypoints
             nodes = graph.nodes
             # Pick a reachable start node from current position
@@ -331,7 +344,9 @@ class Simulator:
 
         action = external_action or self.baseline.act(state)
         target = action.target
-        target, reroute = self._safe_target(target)
+        graph_baselines = {"acs", "acs_ds", "cps_aco", "ga_sca"}
+        allow_graph_reroute = self.cfg.baseline.name not in graph_baselines
+        target, reroute = self._safe_target(target, allow_graph_reroute=allow_graph_reroute)
 
         wind_vec = self._wind_vector()
         if wind_vec is None:
@@ -490,6 +505,8 @@ class Simulator:
             "reroute": int(reroute),
         }
         done = self.slot_idx >= self.cfg.sim.steps or viol_battery == 1
+        if self.cfg.sim.stop_when_all_md_visited and self.all_md_visited:
+            done = True
         return row, done
 
     def run(self, output_root: str, export_world_json: bool = True) -> SimulationOutput:
@@ -552,6 +569,8 @@ class Simulator:
             "battery_wh_end": self.battery_wh,
             "baseline": self.cfg.baseline.name,
             "totals": totals,
+            "all_md_visited": bool(self.all_md_visited),
+            "unique_md_visited": int(len(self.visited_md)),
         }
         write_summary(run_dir, summary)
         return SimulationOutput(run_id=run_id, summary=summary, output_dir=str(run_dir))

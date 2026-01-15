@@ -299,6 +299,12 @@ class ACSDSBaseline(Baseline):
             goal = self._nearest_node(target)
             node_path, backtracks = self._build_path(start, goal)
             self.current_path = [self.graph.nodes[i] for i in node_path]
+            if not self.current_path:
+                self.current_path = [target]
+            else:
+                last = self.current_path[-1]
+                if (last[0] - target[0]) ** 2 + (last[1] - target[1]) ** 2 + (last[2] - target[2]) ** 2 > 1e-6:
+                    self.current_path.append(target)
             self.last_plan_slot = int(state.get("slot_idx", -1))
             self.last_target_idx = target_idx
             self.last_goal_point = target
@@ -307,7 +313,17 @@ class ACSDSBaseline(Baseline):
         else:
             info = {"status": "ok", "target_idx": target_idx}
 
-        next_wp = self.current_path.pop(0)
+        reach = float(self.params.get("waypoint_reach_m", 8.0))
+        while self.current_path:
+            next_wp = self.current_path[0]
+            if math.sqrt((pos[0] - next_wp[0]) ** 2 + (pos[1] - next_wp[1]) ** 2 + (pos[2] - next_wp[2]) ** 2) <= reach:
+                self.current_path.pop(0)
+                continue
+            break
+        if not self.current_path:
+            next_wp = target
+        else:
+            next_wp = self.current_path[0]
         return Action(target=next_wp, info=info)
 
     def plan(self, state: Dict[str, Any]) -> Dict[str, Any]:
@@ -320,4 +336,11 @@ class ACSDSBaseline(Baseline):
         start = self._nearest_reachable_node(pos)
         goal = self._nearest_node(target)
         node_path, backtracks = self._build_path(start, goal)
-        return {"status": "ok", "path": [self.graph.nodes[i] for i in node_path], "target_idx": target_idx, "backtracks": backtracks}
+        path = [self.graph.nodes[i] for i in node_path]
+        if not path:
+            path = [target]
+        else:
+            last = path[-1]
+            if (last[0] - target[0]) ** 2 + (last[1] - target[1]) ** 2 + (last[2] - target[2]) ** 2 > 1e-6:
+                path.append(target)
+        return {"status": "ok", "path": path, "target_idx": target_idx, "backtracks": backtracks}
