@@ -38,6 +38,68 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* HATTO-UFog: docs expansion (responsive media + no overflow) */
+#overview .hf-media,
+#method .hf-media,
+#results .hf-media,
+#simulators .hf-media,
+#simulators .hf-video {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#overview .hf-figure,
+#method .hf-figure,
+#results .hf-figure,
+#simulators .hf-figure {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--background-primary);
+}
+
+#results .hf-media,
+#simulators .hf-media {
+  max-height: 360px;
+  object-fit: contain;
+}
+
+#simulators .hf-video {
+  background: #0b1220;
+  border-radius: var(--border-radius-lg);
+}
+
+#results .hf-card,
+#simulators .hf-card {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+#results .card-content,
+#simulators .card-content {
+  padding: 1rem 1.25rem;
+}
+
+#repro .hf-code {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  #results .hf-media,
+  #simulators .hf-media {
+    max-height: 260px;
+  }
+}
+
 
 /* Modern Button Styles */
 .button {
@@ -787,6 +849,4 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
-
 

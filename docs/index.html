@@ -299,161 +299,216 @@
       </div>
     </section>
 
-	    <section class="section" id="overview">
-	      <div class="container is-max-widescreen">
-	        <div class="columns is-centered">
-	          <div class="column is-five-sixths">
-	            <h2 class="title is-3 has-text-left">System Overview</h2>
-	            <div class="columns is-vcentered">
-	              <div class="column is-6">
-	                <div class="content">
-	                  <p class="has-text-justified">
-	                    We study a UAV-assisted fog computing system where a UAV acts as both a mobile computing node and a communication relay.
-	                    The framework jointly optimizes attitude control, 3D trajectory planning, task assignment, and resource allocation to reduce
-	                    overall latency and energy consumption under safety and terrain constraints.
-	                  </p>
-	                  <ul class="has-text-left">
-	                    <li>Cross-layer coupling: control, mobility, and computation decisions affect each other.</li>
-	                    <li>3D, terrain-aware planning: motion is constrained by safety and environment geometry.</li>
-	                    <li>End-to-end objective: jointly minimize latency and energy with practical deployment considerations.</li>
-	                  </ul>
-	                </div>
-	              </div>
-	              <div class="column is-6">
-	                <figure class="image">
-	                  <img src="static/images/paper/network.png" alt="UAV-assisted fog computing system model">
-	                </figure>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </section>
+    <section class="section" id="overview">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column is-five-sixths">
+            <h2 class="title is-3 has-text-left">System Overview</h2>
+            <div class="columns is-vcentered">
+              <div class="column is-6">
+                <div class="content">
+                  <p class="has-text-justified">
+                    We study a UAV-assisted fog computing system where a UAV acts as both a mobile computing node and a communication relay.
+                    The framework jointly optimizes attitude control, 3D trajectory planning, task assignment, and resource allocation to reduce
+                    overall latency and energy consumption under safety and terrain constraints.
+                  </p>
+                  <ul class="has-text-left">
+                    <li>Cross-layer coupling: control, mobility, and computation decisions affect each other.</li>
+                    <li>3D, terrain-aware planning: motion is constrained by safety and environment geometry.</li>
+                    <li>End-to-end objective: jointly minimize latency and energy with practical deployment considerations.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-6">
+                <figure class="image hf-figure">
+                  <img class="hf-media" src="static/images/paper/network.png" alt="UAV-assisted fog computing system model">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	    <section class="section hero is-light" id="method">
-	      <div class="container is-max-widescreen">
-	        <div class="columns is-centered">
-	          <div class="column is-five-sixths">
-	            <h2 class="title is-3 has-text-left">Method at a Glance</h2>
-	            <div class="content">
-	              <p class="has-text-justified">
-	                Our holistic pipeline connects four interdependent modules. The output of each module feeds back into others, enabling
-	                end-to-end optimization from UAV attitude stability to safe 3D trajectory selection and task placement.
-	              </p>
-	              <ul class="has-text-left">
-	                <li><strong>ATC</strong>: FEAR-PID for robust quadrotor attitude control across flight phases.</li>
-	                <li><strong>Trajectory</strong>: ACS-DS with safety and decoupling mechanisms for reliable convergence.</li>
-	                <li><strong>Offloading</strong>: PSO-based decisions for where each task is executed.</li>
-	                <li><strong>Holistic feedback</strong>: cross-module coupling to improve global solutions.</li>
-	              </ul>
-	            </div>
-	            <figure class="image">
-	              <img src="static/images/paper/flowchart.png" alt="Holistic optimization pipeline overview">
-	            </figure>
-	          </div>
-	        </div>
-	      </div>
-	    </section>
+    <section class="section hero is-light" id="method">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column is-five-sixths">
+            <h2 class="title is-3 has-text-left">Method at a Glance</h2>
+            <div class="columns is-vcentered">
+              <div class="column is-6">
+                <div class="content">
+                  <p class="has-text-justified">
+                    Our holistic pipeline connects four interdependent modules. The output of each module feeds back into others, enabling
+                    end-to-end optimization from UAV attitude stability to safe 3D trajectory selection and task placement.
+                  </p>
+                  <ul class="has-text-left">
+                    <li><strong>ATC</strong>: FEAR-PID for robust quadrotor attitude control across flight phases.</li>
+                    <li><strong>Trajectory</strong>: ACS-DS with safety and decoupling mechanisms for reliable convergence.</li>
+                    <li><strong>Offloading</strong>: PSO-based decisions for where each task is executed.</li>
+                    <li><strong>Holistic feedback</strong>: cross-module coupling to improve global solutions.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-6">
+                <figure class="image hf-figure">
+                  <img class="hf-media" src="static/images/paper/flowchart.png" alt="Holistic optimization pipeline overview">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	    <section class="section" id="results">
-	      <div class="container is-max-widescreen">
-	        <div class="columns is-centered">
-	          <div class="column is-five-sixths">
-	            <h2 class="title is-3 has-text-left">Key Results</h2>
-	            <div class="content">
-	              <p class="has-text-justified">
-	                We report extensive simulation results demonstrating improvements in convergence behavior, latency, and energy consumption
-	                compared to strong baselines.
-	              </p>
-	            </div>
+    <section class="section" id="results">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column is-five-sixths">
+            <h2 class="title is-3 has-text-left">Key Results</h2>
+            <div class="content">
+              <p class="has-text-justified">
+                We report extensive simulation results demonstrating improvements in convergence behavior, latency, and energy consumption
+                compared to strong baselines.
+              </p>
+            </div>
 
-	            <div class="carousel results-carousel">
-	              <div class="item">
-	                <img src="static/images/paper/convergence.png" alt="Convergence comparison">
-	                <h2 class="subtitle has-text-centered">Convergence: faster and more reliable optimization</h2>
-	              </div>
-	              <div class="item">
-	                <img src="static/images/paper/consumption.png" alt="Energy consumption comparison">
-	                <h2 class="subtitle has-text-centered">Energy: reduced energy consumption under realistic settings</h2>
-	              </div>
-	              <div class="item">
-	                <img src="static/images/paper/ablation.png" alt="Ablation study">
-	                <h2 class="subtitle has-text-centered">Ablation: contributions of key components</h2>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </section>
+            <div class="columns is-multiline">
+              <div class="column is-4">
+                <div class="card hf-card">
+                  <div class="card-image">
+                    <figure class="image hf-figure">
+                      <img class="hf-media" src="static/images/paper/convergence.png" alt="Convergence comparison">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <p class="subtitle is-6 has-text-centered">Convergence: faster and more reliable optimization</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="card hf-card">
+                  <div class="card-image">
+                    <figure class="image hf-figure">
+                      <img class="hf-media" src="static/images/paper/consumption.png" alt="Energy consumption comparison">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <p class="subtitle is-6 has-text-centered">Energy: reduced energy consumption under realistic settings</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="card hf-card">
+                  <div class="card-image">
+                    <figure class="image hf-figure">
+                      <img class="hf-media" src="static/images/paper/ablation.png" alt="Ablation study">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <p class="subtitle is-6 has-text-centered">Ablation: contributions of key components</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	    <section class="section hero is-light" id="simulators">
-	      <div class="container is-max-widescreen">
-	        <div class="columns is-centered">
-	          <div class="column is-five-sixths">
-	            <h2 class="title is-3 has-text-left">High-Fidelity Simulators</h2>
-	            <div class="content">
-	              <p class="has-text-justified">
-	                To support fast iteration and showcase-quality visualization, we provide deployment-ready recipes across three simulators:
-	                a lightweight WebGL framework, Microsoft AirSim, and NVIDIA Isaac Sim.
-	              </p>
-	            </div>
+    <section class="section hero is-light" id="simulators">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column is-five-sixths">
+            <h2 class="title is-3 has-text-left">High-Fidelity Simulators</h2>
+            <div class="content">
+              <p class="has-text-justified">
+                To support fast iteration and showcase-quality visualization, we provide deployment-ready recipes across three simulators:
+                a lightweight WebGL framework, Microsoft AirSim, and NVIDIA Isaac Sim.
+              </p>
+            </div>
 
-	            <div class="carousel results-carousel">
-	              <div class="item">
-	                <video controls muted loop playsinline preload="metadata">
-	                  <source src="static/media/framework/video__web.mp4" type="video/mp4">
-	                </video>
-	                <h2 class="subtitle has-text-centered">Framework (WebGL): fast iteration and end-to-end pipeline sanity checks</h2>
-	              </div>
-	              <div class="item">
-	                <video controls muted loop playsinline preload="metadata">
-	                  <source src="static/media/airsim/airsimnh_video__web.mp4" type="video/mp4">
-	                </video>
-	                <h2 class="subtitle has-text-centered">AirSim (AirSimNH): outdoor, photorealistic environment validation</h2>
-	              </div>
-	              <div class="item">
-	                <video controls muted loop playsinline preload="metadata">
-	                  <source src="static/media/isaac/video__web.mp4" type="video/mp4">
-	                </video>
-	                <h2 class="subtitle has-text-centered">Isaac Sim: high-quality rendering with official outdoor content</h2>
-	              </div>
-	            </div>
+            <div class="columns is-multiline">
+              <div class="column is-4">
+                <div class="card hf-card">
+                  <div class="card-image">
+                    <video class="hf-media hf-video" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/framework/video__web.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="card-content">
+                    <p class="subtitle is-6 has-text-centered">Framework (WebGL): fast iteration and end-to-end pipeline sanity checks</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="card hf-card">
+                  <div class="card-image">
+                    <video class="hf-media hf-video" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/airsim/airsimnh_video__web.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="card-content">
+                    <p class="subtitle is-6 has-text-centered">AirSim (AirSimNH): outdoor, photorealistic environment validation</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="card hf-card">
+                  <div class="card-image">
+                    <video class="hf-media hf-video" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/isaac/video__web.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="card-content">
+                    <p class="subtitle is-6 has-text-centered">Isaac Sim: high-quality rendering with official outdoor content</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-	            <div class="columns is-vcentered" style="margin-top: 1rem;">
-	              <div class="column is-7">
-	                <div class="content">
-	                  <ul class="has-text-left">
-	                    <li><strong>Framework</strong>: reproducible planner/control visualization with lightweight runs.</li>
-	                    <li><strong>AirSim</strong>: high-fidelity outdoor scenes; supports two lines (pose-driven mainline and dynamics auxline).</li>
-	                    <li><strong>Isaac Sim</strong>: robust headless rendering pipeline; assets referenced by URL (no redistribution).</li>
-	                  </ul>
-	                </div>
-	              </div>
-	              <div class="column is-5">
-	                <figure class="image">
-	                  <img src="static/images/example/isaac_screenshot.png" alt="Isaac Sim outdoor showcase screenshot">
-	                </figure>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </section>
+            <div class="columns is-vcentered" style="margin-top: 0.75rem;">
+              <div class="column is-7">
+                <div class="content">
+                  <ul class="has-text-left">
+                    <li><strong>Framework</strong>: reproducible planner/control visualization with lightweight runs.</li>
+                    <li><strong>AirSim</strong>: high-fidelity outdoor scenes; supports two lines (pose-driven mainline and dynamics auxline).</li>
+                    <li><strong>Isaac Sim</strong>: robust headless rendering pipeline; assets referenced by URL (no redistribution).</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-5">
+                <div class="card hf-card">
+                  <div class="card-image">
+                    <figure class="image hf-figure">
+                      <img class="hf-media" src="static/images/example/isaac_screenshot.png" alt="Isaac Sim outdoor showcase screenshot">
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <p class="subtitle is-6 has-text-centered">Isaac Sim screenshot</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	    <section class="section" id="repro">
-	      <div class="container is-max-widescreen">
-	        <div class="columns is-centered">
-	          <div class="column is-five-sixths">
-	            <h2 class="title is-3 has-text-left">Reproducibility</h2>
-	            <div class="columns">
-	              <div class="column is-7">
-	                <div class="content">
-	                  <p class="has-text-justified">
-	                    The repository is designed to be open-source friendly: we do not commit large binary environments or proprietary assets.
-	                    Showcase scenes are referenced via public URLs, and curated media is kept small for GitHub Pages.
-	                  </p>
-	                  <p class="has-text-left"><strong>Quick commands (examples):</strong></p>
-	                  <pre><code># From repo root
+    <section class="section" id="repro">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column is-five-sixths">
+            <h2 class="title is-3 has-text-left">Reproducibility</h2>
+            <div class="columns is-variable is-6">
+              <div class="column is-7">
+                <div class="content">
+                  <p class="has-text-justified">
+                    The repository is designed to be open-source friendly: we do not commit large binary environments or proprietary assets.
+                    Showcase scenes are referenced via public URLs, and curated media is kept small for GitHub Pages.
+                  </p>
+                  <p class="has-text-left"><strong>Quick commands (examples):</strong></p>
+                  <pre class="hf-code"><code># From repo root
 python -m pip install -r requirements.txt
 
 # AirSim (download environment binaries locally; not committed)
@@ -463,26 +518,26 @@ bash AirSim/scripts/download_env_airsimnh.sh
 export ISAACSIM_ROOT=/path/to/isaacsim
 $ISAACSIM_ROOT/python.sh Isaac/scripts/run_isaac_showcase.py --config Isaac/configs/isaac_showcase_rivermark_outdoor_demo_debug.yaml --output Isaac/runs_isaac --name showcase_rivermark_outdoor
 python Isaac/scripts/postprocess_video.py --run_dir Isaac/runs_isaac/&lt;run_id&gt;__&lt;slug&gt;</code></pre>
-	                </div>
-	              </div>
-	              <div class="column is-5">
-	                <div class="content">
-	                  <p class="has-text-left"><strong>Asset policy:</strong></p>
-	                  <ul class="has-text-left">
-	                    <li>Do not commit AirSim binary environments under <code>AirSim/envs/</code>.</li>
-	                    <li>Do not commit Isaac/Nucleus assets; use URLs or local fetch steps instead.</li>
-	                    <li>Only curated media is kept small for the website and examples.</li>
-	                  </ul>
-	                  <p class="has-text-left">
-	                    The <strong>Paper</strong> button at the top links to <code>static/pdfs/paper.pdf</code> for convenient reading.
-	                  </p>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </section>
+                </div>
+              </div>
+              <div class="column is-5">
+                <div class="content">
+                  <p class="has-text-left"><strong>Asset policy:</strong></p>
+                  <ul class="has-text-left">
+                    <li>Do not commit AirSim binary environments under <code>AirSim/envs/</code>.</li>
+                    <li>Do not commit Isaac/Nucleus assets; use URLs or local fetch steps instead.</li>
+                    <li>Only curated media is kept small for the website and examples.</li>
+                  </ul>
+                  <p class="has-text-left">
+                    The <strong>Paper</strong> button at the top links to <code>static/pdfs/paper.pdf</code> for convenient reading.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="BibTeX">
       <div class="container is-max-widescreen content">
