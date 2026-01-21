@@ -29,7 +29,7 @@ Online demo: https://shuaijun-liu.github.io/UAV-Assisted-Fog-Computing-Simulatio
 </small>
 
 
-## Showcases (previews)
+## Showcases
 
 ### AirSim 
 
@@ -46,14 +46,14 @@ Example result videos (MP4): [AirSimNH](AirSim/example/AirSimNH/video__web.mp4) 
 
 [Example result video (MP4).](Isaac/example/video__web.mp4)
 
-## Framework showcase assets
-
-- Viewer + deterministic inputs: `Framework/showcase/`
-- Pre-rendered screenshots/videos: `Framework/example/media/`
-
+### Framework showcase assets (web-based)
 ![](Framework/example/media/video.webp)
 
 [Example result video (MP4).](Framework/example/media/video__web.mp)
+
+## Online demo
+![](docs/static/images/path_side_by_side__small.gif)
+![](docs/static/images/atc_side_by_side__small.gif)
 
 ## Installation
 
@@ -130,13 +130,9 @@ ufog_network run --config Framework/configs/smoke.yaml --output Framework/runs
   - Binary environments: AirSim release `v1.8.1` (e.g., `AirSimNH.zip`, `Blocks.zip`)
 - GPU / Driver
   - NVIDIA driver: `580.119.02`
-  - GPU: `NVIDIA RTX 5880 Ada Generation` (multi-GPU)
-- Normal Python (postprocess/tools)
-  - Python: `3.13.11`
-  - Key packages: `numpy 2.4.1`, `pandas 2.3.3`, `pyarrow 22.0.0`, `opencv-python 4.11.0`, `PyYAML 6.0.3`, `imageio 2.37.2`, `imageio-ffmpeg 0.6.0`, `playwright 1.49.1`, `msgpack-rpc-python 0.4.1`
+  - GPU: `NVIDIA RTX 5880 Ada Generation`
+- Python
+  - Python packages: `numpy 2.4.1`, `pandas 2.3.3`, `pyarrow 22.0.0`, `opencv-python 4.11.0`, `PyYAML 6.0.3`, `imageio 2.37.2`, `imageio-ffmpeg 0.6.0`, `playwright 1.49.1`, `msgpack-rpc-python 0.4.1`
 
-## Online demo gallery
 
-![](docs/static/images/path_side_by_side__small.gif)
-![](docs/static/images/atc_side_by_side__small.gif)
 
