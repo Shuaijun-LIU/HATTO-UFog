@@ -106,56 +106,16 @@ ufog_network run --config Framework/configs/smoke.yaml --output Framework/runs
 
 These version pins are a reference baseline for reproducing the reported runs and the curated media artifacts.
 
-<table>
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Item</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3">Isaac Sim</td>
-      <td>Version</td>
-      <td><code>5.1.0-rc.19+release.26219.9c81211b.gl</code></td>
-    </tr>
-    <tr>
-      <td>Built-in Python</td>
-      <td><code>3.11.13</code> (<code>$ISAACSIM_ROOT/python.sh</code>)</td>
-    </tr>
-    <tr>
-      <td>Official stage asset prefix</td>
-      <td><code>Assets/Isaac/5.1/...</code></td>
-    </tr>
-
-    <tr>
-      <td rowspan="2">AirSim</td>
-      <td>Vendored PythonClient upstream commit</td>
-      <td><code>13448700ec2b36d6aad7a4e0909bc9daf9d3d931</code> (<code>microsoft/AirSim</code>)</td>
-    </tr>
-    <tr>
-      <td>Binary environments</td>
-      <td>AirSim release <code>v1.8.1</code> (e.g., <code>AirSimNH.zip</code>, <code>Blocks.zip</code>)</td>
-    </tr>
-
-    <tr>
-      <td rowspan="2">GPU / Driver</td>
-      <td>NVIDIA driver</td>
-      <td><code>580.119.02</code></td>
-    </tr>
-    <tr>
-      <td>GPU</td>
-      <td><code>NVIDIA RTX 5880 Ada Generation</code></td>
-    </tr>
-
-    <tr>
-      <td>Python</td>
-      <td>Key packages</td>
-      <td><code>numpy 2.4.1</code>, <code>pandas 2.3.3</code>, <code>pyarrow 22.0.0</code>, <code>opencv-python 4.11.0</code>, <code>PyYAML 6.0.3</code>, <code>imageio 2.37.2</code>, <code>imageio-ffmpeg 0.6.0</code>, <code>playwright 1.49.1</code>, <code>msgpack-rpc-python 0.4.1</code></td>
-    </tr>
-  </tbody>
-</table>
+| Component | Item | Value |
+|---|---|---|
+| Isaac Sim | Version | `5.1.0-rc.19+release.26219.9c81211b.gl` |
+| Isaac Sim | Built-in Python | `3.11.13` (`$ISAACSIM_ROOT/python.sh`) |
+| Isaac Sim | Official stage asset prefix | `Assets/Isaac/5.1/...` |
+| AirSim | Vendored PythonClient upstream commit | `13448700ec2b36d6aad7a4e0909bc9daf9d3d931` (`microsoft/AirSim`) |
+| AirSim | Binary environments | AirSim release `v1.8.1` (e.g., `AirSimNH.zip`, `Blocks.zip`) |
+| GPU / Driver | NVIDIA driver | `580.119.02` |
+| GPU / Driver | GPU | `NVIDIA RTX 5880 Ada Generation` |
+| Python | Key packages | `numpy 2.4.1`, `pandas 2.3.3`, `pyarrow 22.0.0`, `opencv-python 4.11.0`, `PyYAML 6.0.3`, `imageio 2.37.2`, `imageio-ffmpeg 0.6.0`, `playwright 1.49.1`, `msgpack-rpc-python 0.4.1` |
 
 
 ## Demo Gallery
