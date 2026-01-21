@@ -8,7 +8,12 @@
 
 
 HATTO-UFog is a UAV-assisted fog computing system that **jointly optimizes**:
-1) attitude control, 2) trajectory planning, 3) resource allocation, and 4) task assignment/offloading,
+
+- attitude control
+- trajectory planning
+- resource allocation
+- task assignment/offloading
+
 to reduce end-to-end **latency** and **energy consumption** in a terrain-aware 3D environment.
 
 This folder contains the code for the paper "Energy-Aware Holistic Optimization in UAV-Assisted Fog Computing: Attitude, Trajectory, and Task Assignment".
