@@ -1,9 +1,16 @@
+<style>
+  .logo-light { display: inline-block; }
+  .logo-dark { display: none; }
+  @media (prefers-color-scheme: dark) {
+    .logo-light { display: none; }
+    .logo-dark { display: inline-block; }
+  }
+</style>
+
 <div align="center">
   <h1 style="display: inline-flex; align-items: center; gap: 8px; margin: 0;">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="docs/static/images/logo_dark.png">
-      <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="40">
-    </picture>
+    <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="40" class="logo-light" style="vertical-align: middle;">
+    <img src="docs/static/images/logo_dark.png" alt="HATTO-UFog logo" width="40" class="logo-dark" style="vertical-align: middle;">
     HATTO-UFog: Holistic Attitude–Trajectory–Task Optimization for UAV-Assisted Fog Computing
   </h1>
 </div>
