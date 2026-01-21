@@ -1,0 +1,19 @@
+name: hatto-ufog-py313
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13.11
+  - pip
+  - pip:
+      - -r requirements.txt
+      # Reference toolchain versions (validated on our setup)
+      - numpy==2.4.1
+      - pandas==2.3.3
+      - pyarrow==22.0.0
+      - opencv-python==4.11.0
+      - PyYAML==6.0.3
+      - imageio==2.37.2
+      - imageio-ffmpeg==0.6.0
+      - playwright==1.49.1
+      - msgpack-rpc-python==0.4.1
+

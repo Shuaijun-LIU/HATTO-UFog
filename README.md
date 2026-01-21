@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="20" style="vertical-align: middle; margin-right: 8px;">
+    <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="40" style="vertical-align: middle; margin-right: 8px;">
     HATTO-UFog: Holistic Attitude–Trajectory–Task Optimization for UAV-Assisted Fog Computing
   </h1>
 </div>
@@ -23,6 +23,23 @@ Online demo: https://shuaijun-liu.github.io/UAV-Assisted-Fog-Computing-Simulatio
 </small>
 
 
+## Table of Contents
+
+- [Modules](#modules)
+- [Showcases](#showcases)
+- [Installation](#installation)
+- [Repository structure](#repository-structure)
+- [Quickstart](#quickstart)
+- [Tested environment (reference)](#tested-environment-reference)
+- [Online demo gallery (small)](#online-demo-gallery-small)
+- [License](#license)
+
+## Modules
+
+- **Framework (Phase 1)**: paper-aligned Python simulation framework for trajectory planning + control + communication + resource allocation + task/offloading, with deterministic Parquet+JSON logging.
+- **AirSim (Phase 2)**: AirSim-based validation and video capture for Framework outputs (mainline/auxline). Included Unreal environments: **AirSimNH**, **Blocks**, **AbandonedPark**, **LandscapeMountains**.
+- **Isaac Sim (Phase 3)**: higher-fidelity dynamics and disturbance robustness experiments, plus Framework→Isaac replay integration and postprocess tooling.
+
 ## Showcases
 
 ### AirSim 
@@ -43,11 +60,7 @@ Example result videos (MP4): [AirSimNH](AirSim/example/AirSimNH/video__web.mp4) 
 ### Framework showcase assets (web-based)
 ![](Framework/example/media/video.webp)
 
-[Example result video (MP4).](Framework/example/media/video__web.mp)
-
-## Online demo
-![](docs/static/images/path_side_by_side__small.gif)
-![](docs/static/images/atc_side_by_side__small.gif)
+[Example result video (MP4).](Framework/example/media/video__web.mp4)
 
 ## Installation
 
@@ -97,6 +110,8 @@ Module docs:
 - AirSim: `AirSim/README.md`
 - Isaac: `Isaac/README.md`
 
+Environment boundary: Framework / AirSim / Isaac have different dependencies and launch modes; follow each module README instead of assuming a single end-to-end command.
+
 ## Quickstart
 
 Framework (from `HATTO-UFog/Framework`):
@@ -113,7 +128,9 @@ python -m pip install -r requirements.txt
 ufog_network run --config Framework/configs/smoke.yaml --output Framework/runs
 ```
 
-## Environment (reference)
+## Tested environment (reference)
+
+These version pins are a reference baseline for reproducing the reported runs and the curated media artifacts.
 
 - Isaac Sim
   - Isaac Sim version: `5.1.0-rc.19+release.26219.9c81211b.gl`
@@ -129,4 +146,12 @@ ufog_network run --config Framework/configs/smoke.yaml --output Framework/runs
   - Python packages: `numpy 2.4.1`, `pandas 2.3.3`, `pyarrow 22.0.0`, `opencv-python 4.11.0`, `PyYAML 6.0.3`, `imageio 2.37.2`, `imageio-ffmpeg 0.6.0`, `playwright 1.49.1`, `msgpack-rpc-python 0.4.1`
 
 
+## Online demo gallery (small)
+
+![](docs/static/images/path_side_by_side__small.gif)
+![](docs/static/images/atc_side_by_side__small.gif)
+
+## License
+
+MIT License: see [`LICENSE`](LICENSE).
 
