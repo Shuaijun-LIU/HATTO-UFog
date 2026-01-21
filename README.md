@@ -32,6 +32,7 @@ HATTO-UFog is a UAV-assisted fog computing system that **jointly optimizes**: (1
 > **Note:** the environment boundary, Framework / AirSim / Isaac have different dependencies and launch modes; follow each module README instead of assuming a single end-to-end command.
 
 </small>
+
 ## Showcases
 
 ### AirSim - AirSimNH Scene
