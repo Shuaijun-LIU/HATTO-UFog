@@ -1,6 +1,14 @@
+<style>
+  @media (prefers-color-scheme: dark) {
+    .hatto-logo {
+      filter: invert(1);
+    }
+  }
+</style>
+
 <div align="center">
   <h1>
-    <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="40" style="vertical-align: middle; margin-right: 8px;">
+    <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="40" class="hatto-logo" style="vertical-align: middle; margin-right: 8px;">
     HATTO-UFog: Holistic Attitude–Trajectory–Task Optimization for UAV-Assisted Fog Computing
   </h1>
 </div>
