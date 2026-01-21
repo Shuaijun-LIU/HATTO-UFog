@@ -1,0 +1,50 @@
+world:
+  seed: 1234
+  size_m: 1000.0
+  height_m: 360.0
+  waypoint_count: 600
+  waypoint_altitude_min_m: 20.0
+  waypoint_altitude_max_m: 220.0
+  connect_radius_m: 120.0
+  connect_step_m: 5.0
+  waypoint_attempts_factor: 20
+  waypoint_enforce_connected: true
+  waypoint_bridge_k: 6
+  waypoint_bridge_max_pairs: 600
+  segment_cache_enabled: true
+  segment_cache_resolution_m: 0.1
+  segment_cache_max_items: 200000
+  heightmap_step_m: 0.0
+  heightmap_extent_m: 0.0
+  terrain:
+    max_height_m: 240.0
+    clearance_m: 3.0
+    octaves: 4
+    lacunarity: 2.0
+    gain: 0.5
+    ridge_strength: 0.6
+    valley_strength: 0.4
+    radial_mountain: true
+    radial_base: 0.3
+    radial_gain: 0.7
+  city:
+    enabled: true
+    radius_m: 360.0
+    road_grid_m: 60.0
+    road_width_m: 12.0
+    park_radius_m: 120.0
+    building_density: 0.35
+    min_height_m: 8.0
+    max_height_m: 90.0
+    max_buildings: 800
+    max_attempts_factor: 10
+  lakes:
+    enabled: true
+    count: 3
+    placement_scale: 0.8
+  obstacles:
+    enabled: true
+    count: 6
+    placement_scale: 0.9
+    min_altitude_offset_m: 30.0
+    max_altitude_offset_m: 120.0

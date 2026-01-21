@@ -1,0 +1,11 @@
+include:
+  - default_split.yaml
+
+sim:
+  # Long-run mode: stop early if all MDs were visited/served.
+  steps: 30000
+  stop_when_all_md_visited: true
+  # Avoid getting stuck on a single hard target forever; revisit later.
+  target_policy: shuffle
+  target_max_steps: 2000
+  target_skip_steps: 4000

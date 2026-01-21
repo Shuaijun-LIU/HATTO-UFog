@@ -1,0 +1,57 @@
+# Isaac showcase config (debug): Rivermark outdoor + official UAV visibility check.
+#
+# Purpose:
+# - Quick iteration to verify the official UAV is actually in-frame (scale/pose/camera).
+# - Not meant for final paper/demo media (use the non-debug config for final).
+
+sim:
+  headless: true
+  physics_dt_s: 0.0166666667
+  rendering_dt_s: 0.0166666667
+  steps: 180                  # ~3s (fast debug)
+  seed: 0
+  auto_select_gpu: true
+  prefer_high_gpu: true
+  limit_cpu_threads: 16
+
+scene:
+  stage_usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Environments/Outdoor/Rivermark/rivermark.usd"
+
+uav:
+  usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+  prim_path: "/World/UAV"
+  center_on_stage_bbox: true
+  altitude_m: 35.0
+  radius_m: 8.0
+  period_s: 8.0
+  scale: 120.0
+
+render:
+  add_lighting_if_missing: true
+  use_hdri: true
+  dome_intensity: 650.0
+  sun_intensity: 12000.0
+  sun_color: [1.0, 0.98, 0.95]
+  sun_direction: [0.2, 0.4, -1.0]
+
+capture:
+  enabled: true
+  backend: replicator
+  resolution: [1920, 1080]
+  every_n_steps: 1
+  warmup_steps: 45
+  screenshot_step: 90
+  camera:
+    auto_from_stage_bbox: false
+    offset_m: [-16.0, -20.0, 10.0]
+    up: [0.0, 0.0, 1.0]
+    focal_length_mm: 18.0
+    min_height_m: 10.0
+    target_offset_m: [0.0, 0.0, -2.0]
+    los_check: true
+  quality:
+    min_mean: 5.0
+    max_mean: 245.0
+    min_std: 5.0
+    min_edge: 1.0
+

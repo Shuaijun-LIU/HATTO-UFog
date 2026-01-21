@@ -1,0 +1,49 @@
+{
+  "baseline_smoke_v2": {
+    "items": {
+      "acs": {
+        "config": "baseline_smoke_v2/acs_config.json",
+        "summary": "baseline_smoke_v2/acs_summary.json",
+        "timeseries": "baseline_smoke_v2/acs_timeseries.parquet",
+        "world": "baseline_smoke_v2/acs_world.json"
+      },
+      "acs_ds": {
+        "config": "baseline_smoke_v2/acs_ds_config.json",
+        "summary": "baseline_smoke_v2/acs_ds_summary.json",
+        "timeseries": "baseline_smoke_v2/acs_ds_timeseries.parquet",
+        "world": "baseline_smoke_v2/acs_ds_world.json"
+      },
+      "cps_aco": {
+        "config": "baseline_smoke_v2/cps_aco_config.json",
+        "summary": "baseline_smoke_v2/cps_aco_summary.json",
+        "timeseries": "baseline_smoke_v2/cps_aco_timeseries.parquet",
+        "world": "baseline_smoke_v2/cps_aco_world.json"
+      },
+      "ga_sca": {
+        "config": "baseline_smoke_v2/ga_sca_config.json",
+        "summary": "baseline_smoke_v2/ga_sca_summary.json",
+        "timeseries": "baseline_smoke_v2/ga_sca_timeseries.parquet",
+        "world": "baseline_smoke_v2/ga_sca_world.json"
+      },
+      "td3": {
+        "config": "baseline_smoke_v2/td3_config.json",
+        "summary": "baseline_smoke_v2/td3_summary.json",
+        "timeseries": "baseline_smoke_v2/td3_timeseries.parquet",
+        "world": "baseline_smoke_v2/td3_world.json"
+      }
+    },
+    "source": "Framework/runs/baseline_smoke_v2/*"
+  },
+  "note": "Small example artifacts copied from Framework/runs (do not treat as benchmark results).",
+  "rigid_smoke_fuzzy": {
+    "items": {
+      "acs": {
+        "config": "rigid_smoke_fuzzy/config.json",
+        "summary": "rigid_smoke_fuzzy/summary.json",
+        "timeseries": "rigid_smoke_fuzzy/timeseries.parquet",
+        "world": "rigid_smoke_fuzzy/world.json"
+      }
+    },
+    "source": "Framework/runs/rigid_smoke_fuzzy/acs_20260114_113237/*"
+  }
+}

@@ -1,0 +1,6 @@
+delay:
+  queue_capacity: 5.0e7
+  tau_s: 1.0
+  queue_eps: 1.0
+  ignore_dc_compute: true
+  queue_model: backlog

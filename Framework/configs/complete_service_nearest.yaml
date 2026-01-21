@@ -1,0 +1,13 @@
+include:
+  - default_split.yaml
+
+sim:
+  # Long-run mode: stop early if all MDs were visited/served.
+  steps: 30000
+  stop_when_all_md_visited: true
+  # Greedy coverage: always try the nearest unserved MD.
+  target_policy: nearest_unserved
+  # Safety valve: if a target stalls, revisit later.
+  target_max_steps: 800
+  target_skip_steps: 1600
+

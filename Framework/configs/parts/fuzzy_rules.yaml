@@ -1,0 +1,14 @@
+control:
+  fuzzy_labels: [NB, NM, NS, ZO, PS, PM, PB]
+  fuzzy_centers: [-6, -4, -2, 0, 2, 4, 6]
+  fuzzy_label_values_kp: [-0.84, -0.56, -0.28, 0, 0.28, 0.56, 0.84]
+  fuzzy_label_values_ki: [-0.28, -0.175, -0.105, 0, 0.105, 0.175, 0.28]
+  fuzzy_label_values_kd: [-0.7, -0.49, -0.245, 0, 0.245, 0.49, 0.7]
+  fuzzy_rule_table:
+    - ["PB/NB/PS", "PB/NB/NS", "PM/NM/NB", "PM/NM/NB", "PS/NS/NB", "ZO/ZO/NM", "ZO/ZO/PS"]
+    - ["PB/NB/PS", "PB/NB/NS", "PM/NM/NB", "PS/NS/NM", "PS/NS/NM", "ZO/ZO/NS", "NS/PS/ZO"]
+    - ["PM/NB/ZO", "PM/NM/NS", "PM/NS/NM", "PS/NS/NM", "ZO/ZO/NS", "NS/PM/NS", "NS/PM/ZO"]
+    - ["PM/NM/ZO", "PM/NM/NS", "PS/NS/NS", "ZO/ZO/NS", "NS/PS/NS", "NM/PM/NS", "NM/PM/ZO"]
+    - ["PS/NM/ZO", "PS/NS/ZO", "ZO/ZO/ZO", "NS/PS/ZO", "NS/PS/ZO", "NM/PM/ZO", "NM/PB/ZO"]
+    - ["PS/ZO/PB", "ZO/ZO/PM", "NS/PS/PM", "NM/PS/PM", "NM/PM/PS", "NM/PB/PS", "NB/PB/PB"]
+    - ["ZO/ZO/PB", "ZO/ZO/PM", "NM/PS/PM", "NM/PM/PM", "NM/PM/PS", "NB/PB/PS", "NB/PB/PB"]

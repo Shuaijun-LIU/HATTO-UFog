@@ -1,0 +1,36 @@
+include:
+  - parts/world.yaml
+
+# Showcase world: enable heightmap export for WebGL rendering and slightly increase scene richness.
+world:
+  seed: 20260117
+  size_m: 1200.0
+  height_m: 420.0
+  # Export a dense heightmap for high-quality rendering (demo-like terrain detail).
+  heightmap_step_m: 2.0
+  heightmap_extent_m: 1200.0
+  waypoint_count: 850
+  connect_radius_m: 140.0
+  terrain:
+    max_height_m: 280.0
+    octaves: 5
+    ridge_strength: 0.65
+    valley_strength: 0.35
+    clearance_m: 3.0
+  city:
+    enabled: true
+    radius_m: 420.0
+    building_density: 0.42
+    max_height_m: 110.0
+    max_buildings: 950
+  lakes:
+    enabled: true
+    count: 4
+    placement_scale: 0.85
+  obstacles:
+    # Showcase visuals: keep the scene realistic (no floating red spheres).
+    # If you need NFZ/uncertain obstacles for algorithm debugging, enable and
+    # render them with non-occluding markers (underlays + labels).
+    enabled: false
+    count: 0
+    placement_scale: 0.9

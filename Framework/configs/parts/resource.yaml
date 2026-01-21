@@ -1,0 +1,31 @@
+resource:
+  mode: heuristic
+  optimize_offload: true
+  optimize_power: true
+  optimize_freq: true
+  optimize_channels: false
+  offload_strategy: fractional
+  heuristic_max_served_mds: 1
+  heuristic_max_distance_m: 600.0
+  heuristic_force_nearest: true
+  heuristic_uav_fraction: 1.0
+  random_seed: 1234
+  random_power_mode: fixed
+  random_freq_mode: fixed
+  offload_granularity: md
+  uav_freq_min_hz: 1.0e9
+  uav_freq_max_hz: 3.0e9
+  md_freq_min_hz: 5.0e8
+  md_freq_max_hz: 2.0e9
+  power_min_w: 0.05
+  power_max_w: 1.0
+  pso:
+    particles: 30
+    iterations: 60
+    inertia: 0.65
+    c1: 2.0
+    c2: 2.0
+    vel_clip: 0.2
+    tol: 1.0e-4
+    no_improve_iters: 20
+    seed: 1234

@@ -1,0 +1,312 @@
+#usda 1.0
+(
+    defaultPrim = "UAV"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "UAV"
+{
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    # Keep materials under the referenced prim so material bindings remain valid
+    # when this asset is referenced into another stage.
+    def Scope "Looks"
+    {
+        def Material "MatBody"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatBody/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.06, 0.06, 0.065)
+                float inputs:metallic = 0.15
+                float inputs:roughness = 0.45
+                color3f inputs:emissiveColor = (0, 0, 0)
+                token outputs:surface
+            }
+        }
+
+        def Material "MatArm"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatArm/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.18, 0.18, 0.19)
+                float inputs:metallic = 0.25
+                float inputs:roughness = 0.55
+                token outputs:surface
+            }
+        }
+
+        def Material "MatMotor"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatMotor/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.10, 0.10, 0.11)
+                float inputs:metallic = 0.35
+                float inputs:roughness = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "MatProp"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatProp/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.04, 0.04, 0.045)
+                float inputs:metallic = 0.0
+                float inputs:roughness = 0.25
+                float inputs:opacity = 0.25
+                token outputs:surface
+            }
+        }
+
+        def Material "MatGlass"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatGlass/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.06, 0.08, 0.10)
+                float inputs:metallic = 0.0
+                float inputs:roughness = 0.05
+                float inputs:opacity = 0.35
+                token outputs:surface
+            }
+        }
+
+        def Material "MatLED_Red"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatLED_Red/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.10, 0.02, 0.02)
+                float inputs:roughness = 0.15
+                color3f inputs:emissiveColor = (12.0, 1.0, 1.0)
+                token outputs:surface
+            }
+        }
+
+        def Material "MatLED_Green"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatLED_Green/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.02, 0.10, 0.02)
+                float inputs:roughness = 0.15
+                color3f inputs:emissiveColor = (1.0, 12.0, 1.0)
+                token outputs:surface
+            }
+        }
+
+        def Material "MatLED_Blue"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatLED_Blue/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.02, 0.04, 0.10)
+                float inputs:roughness = 0.15
+                color3f inputs:emissiveColor = (1.0, 2.0, 14.0)
+                token outputs:surface
+            }
+        }
+
+        def Material "MatLED_Yellow"
+        {
+            token outputs:surface.connect = </UAV/Looks/MatLED_Yellow/PreviewSurface.outputs:surface>
+            def Shader "PreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.10, 0.10, 0.02)
+                float inputs:roughness = 0.15
+                color3f inputs:emissiveColor = (10.0, 10.0, 1.0)
+                token outputs:surface
+            }
+        }
+    }
+
+    def Xform "Geo"
+    {
+        # Body (compact box-like core).
+        def Cube "body"
+        {
+            # Reduce fuselage footprint so it doesn't overlap the prop discs.
+            float3 xformOp:translate = (0, 0, 0.06)
+            float3 xformOp:scale = (0.20, 0.17, 0.06)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            rel material:binding = </UAV/Looks/MatBody>
+        }
+
+        # Arms (cylinders).
+        def Cylinder "arm_x"
+        {
+            float3 xformOp:translate = (0, 0, 0.08)
+            float3 xformOp:scale = (1.0, 1.0, 1.0)
+            float xformOp:rotateZ = 0
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ", "xformOp:scale"]
+            double radius = 0.022
+            double height = 0.76
+            token axis = "X"
+            rel material:binding = </UAV/Looks/MatArm>
+        }
+
+        def Cylinder "arm_y"
+        {
+            float3 xformOp:translate = (0, 0, 0.08)
+            float xformOp:rotateZ = 90
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateZ"]
+            double radius = 0.022
+            double height = 0.76
+            token axis = "X"
+            rel material:binding = </UAV/Looks/MatArm>
+        }
+
+        # Motor pods + prop discs (thin cylinders).
+        def Xform "motors"
+        {
+            def Xform "m1"
+            {
+                float3 xformOp:translate = (0.38, 0.00, 0.10)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+
+                def Cylinder "pod"
+                {
+                    double radius = 0.055
+                    double height = 0.06
+                    token axis = "Z"
+                    rel material:binding = </UAV/Looks/MatMotor>
+                }
+                def Cylinder "prop"
+                {
+                    float3 xformOp:translate = (0, 0, 0.045)
+                    float3 xformOp:scale = (1.0, 1.0, 1.0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+                    double radius = 0.16
+                    double height = 0.01
+                    token axis = "Z"
+                    bool doubleSided = 1
+                    rel material:binding = </UAV/Looks/MatProp>
+                }
+                def Sphere "led"
+                {
+                    float3 xformOp:translate = (0.0, 0.06, 0.02)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                    double radius = 0.018
+                    rel material:binding = </UAV/Looks/MatLED_Green>
+                }
+            }
+
+            def Xform "m2"
+            {
+                float3 xformOp:translate = (0.00, 0.38, 0.10)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+
+                def Cylinder "pod"
+                {
+                    double radius = 0.055
+                    double height = 0.06
+                    token axis = "Z"
+                    rel material:binding = </UAV/Looks/MatMotor>
+                }
+                def Cylinder "prop"
+                {
+                    float3 xformOp:translate = (0, 0, 0.045)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                    double radius = 0.16
+                    double height = 0.01
+                    token axis = "Z"
+                    bool doubleSided = 1
+                    rel material:binding = </UAV/Looks/MatProp>
+                }
+                def Sphere "led"
+                {
+                    float3 xformOp:translate = (0.06, 0.0, 0.02)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                    double radius = 0.018
+                    rel material:binding = </UAV/Looks/MatLED_Blue>
+                }
+            }
+
+            def Xform "m3"
+            {
+                float3 xformOp:translate = (-0.38, 0.00, 0.10)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+
+                def Cylinder "pod"
+                {
+                    double radius = 0.055
+                    double height = 0.06
+                    token axis = "Z"
+                    rel material:binding = </UAV/Looks/MatMotor>
+                }
+                def Cylinder "prop"
+                {
+                    float3 xformOp:translate = (0, 0, 0.045)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                    double radius = 0.16
+                    double height = 0.01
+                    token axis = "Z"
+                    bool doubleSided = 1
+                    rel material:binding = </UAV/Looks/MatProp>
+                }
+                def Sphere "led"
+                {
+                    float3 xformOp:translate = (0.0, -0.06, 0.02)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                    double radius = 0.018
+                    rel material:binding = </UAV/Looks/MatLED_Red>
+                }
+            }
+
+            def Xform "m4"
+            {
+                float3 xformOp:translate = (0.00, -0.38, 0.10)
+                uniform token[] xformOpOrder = ["xformOp:translate"]
+
+                def Cylinder "pod"
+                {
+                    double radius = 0.055
+                    double height = 0.06
+                    token axis = "Z"
+                    rel material:binding = </UAV/Looks/MatMotor>
+                }
+                def Cylinder "prop"
+                {
+                    float3 xformOp:translate = (0, 0, 0.045)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                    double radius = 0.16
+                    double height = 0.01
+                    token axis = "Z"
+                    bool doubleSided = 1
+                    rel material:binding = </UAV/Looks/MatProp>
+                }
+                def Sphere "led"
+                {
+                    float3 xformOp:translate = (-0.06, 0.0, 0.02)
+                    uniform token[] xformOpOrder = ["xformOp:translate"]
+                    double radius = 0.018
+                    rel material:binding = </UAV/Looks/MatLED_Yellow>
+                }
+            }
+        }
+
+        # Small camera dome.
+        def Sphere "camera_dome"
+        {
+            float3 xformOp:translate = (0.10, 0.0, 0.05)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+            double radius = 0.035
+            rel material:binding = </UAV/Looks/MatGlass>
+        }
+    }
+}

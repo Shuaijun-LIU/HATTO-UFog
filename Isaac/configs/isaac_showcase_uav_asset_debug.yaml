@@ -1,0 +1,47 @@
+# Debug config: procedural scene + official quadcopter USD (HTTPS)
+#
+# Goal: quickly determine whether the official quadcopter USD contains renderable geometry
+# (purpose/visibility) without the long load time of large outdoor stages.
+
+sim:
+  headless: true
+  physics_dt_s: 0.0166666667
+  rendering_dt_s: 0.0166666667
+  steps: 120
+  seed: 0
+  auto_select_gpu: true
+  prefer_high_gpu: true
+  limit_cpu_threads: 16
+
+scene:
+  # Leave empty to use the built-in procedural stage.
+  stage_usd: ""
+  ground_extent_m: 120.0
+  building_count: 0
+
+uav:
+  usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+  prim_path: "/World/UAV"
+  center_on_stage_bbox: false
+  altitude_m: 6.0
+  radius_m: 0.0
+  period_s: 6.0
+  scale: 1.0
+  force_render_purpose: true
+
+capture:
+  enabled: true
+  backend: replicator
+  resolution: [1280, 720]
+  every_n_steps: 1
+  warmup_steps: 30
+  screenshot_step: 60
+  camera:
+    auto_from_stage_bbox: false
+    follow_uav: true
+    offset_m: [-6.0, -6.0, 3.0]
+    up: [0.0, 0.0, 1.0]
+    focal_length_mm: 35.0
+    min_height_m: 1.0
+    target_offset_m: [0.0, 0.0, 0.0]
+    los_check: false

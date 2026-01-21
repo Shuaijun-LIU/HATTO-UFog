@@ -1,0 +1,26 @@
+tasks:
+  md_count: 50
+  md_distribution: fixed
+  md_density: 5.0e-5
+  md_min_count: 1
+  md_require_waypoint: false
+  md_waypoint_max_dist_m: 80.0
+  md_waypoint_require_los: true
+  service_hover_offset_m: 8.0
+  md_require_service_waypoint: true
+  md_service_waypoint_max_dist_m: 180.0
+  md_service_waypoint_require_los: true
+  arrival_rate: 0.6
+  arrival_rate_mode: fixed
+  task_size_dist: exponential
+  task_size_mean: 5.0e6
+  task_size_std: 2.0e6
+  task_size_min_bits: 1.0
+  task_size_max_bits: 1.0e9
+  cycles_dist: normal
+  cycles_mean: 800.0
+  cycles_std: 200.0
+  cycles_min: 1.0
+  cycles_max: 1.0e6
+  md_height_offset_m: 0.1
+  position_attempts_factor: 50

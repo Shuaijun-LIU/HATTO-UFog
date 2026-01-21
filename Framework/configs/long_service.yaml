@@ -1,0 +1,18 @@
+include:
+  - default_split.yaml
+
+baseline:
+  name: acs
+  params:
+    ants: 6
+    iterations: 6
+
+sim:
+  decision_dt_s: 0.5
+  control_dt_s: 0.05
+  steps: 4000
+  stop_when_all_md_visited: true
+  service_radius_m: 300.0
+
+energy:
+  battery_wh: 50000.0

@@ -1,0 +1,7 @@
+include:
+  - default_split.yaml
+
+sim:
+  steps: 800
+  stop_when_all_md_visited: false
+

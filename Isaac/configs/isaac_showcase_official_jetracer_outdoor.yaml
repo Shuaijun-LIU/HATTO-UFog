@@ -1,0 +1,69 @@
+# Isaac showcase config (official outdoor environment stage; no asset redistribution)
+#
+# Goal: Produce showcase-quality outdoor materials:
+# - Clear UHD screenshot (>= 1920x1080) with environment overview + UAV in-frame
+# - Clear short MP4 (3-10s) with environment overview + UAV in-frame
+#
+# This config uses an official Isaac environment USD via public HTTPS (no local assets root required)
+# plus the official quadcopter USD for visuals.
+
+sim:
+  headless: true
+  physics_dt_s: 0.0166666667   # ~60Hz
+  rendering_dt_s: 0.0166666667
+  steps: 360                   # ~6s (postprocess can generate a 3-10s MP4)
+  seed: 0
+  auto_select_gpu: true
+  prefer_high_gpu: true
+  limit_cpu_threads: 16
+
+scene:
+  # Official outdoor stage (public HTTPS URL; no local assets root required).
+  stage_usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Environments/Jetracer/jetracer_track_solid.usd"
+
+uav:
+  # Official quadcopter USD for high-quality visuals (public HTTPS).
+  usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+  prim_path: "/World/UAV"
+  center_on_stage_bbox: true
+  altitude_m: 2.5
+  radius_m: 5.0
+  period_s: 8.0
+  scale: 1.6
+
+render:
+  # Keep the stage's authored lighting; add lighting only when missing.
+  add_lighting_if_missing: true
+  # Add an HDRI dome for richer outdoor reflections (if the stage has no dome light).
+  use_hdri: true
+  dome_intensity: 450.0
+  sun_intensity: 11000.0
+  sun_color: [1.0, 0.98, 0.95]
+  sun_direction: [0.2, 0.45, -1.0]
+
+capture:
+  enabled: true
+  backend: replicator
+  resolution: [1920, 1080]
+  every_n_steps: 1
+  warmup_steps: 30
+  screenshot_step: 180
+  camera:
+    # Auto place the camera from the stage bbox for a stable overview.
+    auto_from_stage_bbox: true
+    auto_distance_scale: 0.45
+    auto_height_scale: 0.35
+    auto_min_distance_m: 10.0
+    auto_min_height_m: 3.0
+    # Fallback (used only if bbox auto fails).
+    offset_m: [-15.0, -15.0, 7.0]
+    up: [0.0, 0.0, 1.0]
+    focal_length_mm: 20.0
+    min_height_m: 2.0
+    target_offset_m: [0.0, 0.0, -0.3]
+    los_check: true
+  quality:
+    min_mean: 5.0
+    max_mean: 245.0
+    min_std: 5.0
+    min_edge: 1.0

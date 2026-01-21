@@ -1,0 +1,33 @@
+# Example pipeline spec (planning-only; nothing runs unless you execute the generated commands)
+
+framework:
+  # A concrete Framework artifact to validate/replay/track:
+  timeseries: ../Framework/runs/wind_long_complete/acs_20260115_230039/timeseries.parquet
+
+mapping:
+  scale_xy: 1.0
+  scale_z: 1.0
+  x_offset_ned: 0.0
+  y_offset_ned: 0.0
+  z_offset_ned: 0.0
+  auto_offset: false
+  base_z_up_m: 10.0
+
+replay_mainline:
+  dt: 0.05
+  fps: 20.0
+  stride: 1
+  max_steps: 0
+  overlay: true
+  use_yaw: true
+  use_rpy: false
+
+track_auxline:
+  dt: 0.05
+  fps: 20.0
+  stride: 1
+  max_steps: 0
+  speed_m_s: 3.0
+  overlay: true
+  yaw_mode: face_path  # face_path | from_timeseries | fixed
+

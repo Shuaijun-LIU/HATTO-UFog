@@ -1,0 +1,57 @@
+# Isaac showcase config (demo debug): Rivermark outdoor + repo-shipped UAV PBR asset.
+#
+# Goal:
+# - Verify we can get an outdoor, high-quality environment view AND a clearly visible UAV in-frame.
+# - Uses a small in-repo USD (`demo_assets/uav_pbr.usda`) to avoid fragile external UAV assets.
+
+sim:
+  headless: true
+  physics_dt_s: 0.0166666667
+  rendering_dt_s: 0.0166666667
+  steps: 180                  # ~3s debug
+  seed: 0
+  auto_select_gpu: true
+  prefer_high_gpu: true
+  limit_cpu_threads: 16
+
+scene:
+  stage_usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Environments/Outdoor/Rivermark/rivermark.usd"
+
+uav:
+  usd: "../demo_assets/uav_pbr.usda"
+  prim_path: "/World/UAV"
+  center_on_stage_bbox: true
+  altitude_m: 22.0
+  radius_m: 14.0
+  period_s: 8.0
+  scale: 1.5
+
+render:
+  add_lighting_if_missing: true
+  use_hdri: true
+  dome_intensity: 650.0
+  sun_intensity: 12000.0
+  sun_color: [1.0, 0.98, 0.95]
+  sun_direction: [0.2, 0.4, -1.0]
+
+capture:
+  enabled: true
+  backend: replicator
+  resolution: [1920, 1080]
+  every_n_steps: 1
+  warmup_steps: 45
+  screenshot_step: 90
+  camera:
+    auto_from_stage_bbox: false
+    follow_uav: true
+    offset_m: [-12.0, -14.0, 7.0]
+    up: [0.0, 0.0, 1.0]
+    focal_length_mm: 18.0
+    min_height_m: 8.0
+    target_offset_m: [0.0, 0.0, -1.0]
+    los_check: true
+  quality:
+    min_mean: 5.0
+    max_mean: 245.0
+    min_std: 5.0
+    min_edge: 1.0

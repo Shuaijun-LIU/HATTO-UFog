@@ -1,0 +1,16 @@
+dynamics:
+  mode: kinematic
+  mass_kg: 1.8
+  gravity_m_s2: 9.81
+  arm_length_m: 0.25
+  kf: 2.0e-5
+  km: 1.0e-6
+  omega_unit: rpm
+  omega_min: 200.0
+  omega_max: 6000.0
+  max_omega_rad_s: 8.0
+  inertia_xx: 0.03
+  inertia_yy: 0.03
+  inertia_zz: 0.06
+  linear_drag: 0.1
+  angular_drag: 0.02

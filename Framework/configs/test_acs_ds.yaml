@@ -1,0 +1,15 @@
+include:
+  - default_split.yaml
+
+baseline:
+  name: acs_ds
+  params:
+    ants: 8
+    iterations: 8
+    replan_interval_steps: 6
+    safety_samples: 20
+    backtrack_steps: 3
+
+sim:
+  steps: 600
+  service_radius_m: 80.0

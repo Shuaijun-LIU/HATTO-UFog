@@ -1,0 +1,13 @@
+energy:
+  battery_wh: 5000.0
+  motor_voltage_v: 22.2
+  motor_resistance_ohm: 0.08
+  motor_kv: 920.0
+  omega_min_rpm: 200.0
+  omega_max_rpm: 6000.0
+  delta_u: 1.2e-28
+  delta_j: 3.0e-28
+  uav_cpu_hz: 2.0e9
+  md_cpu_hz: 1.0e9
+  dc_cpu_hz: 5.0e9
+  ignore_dc_energy: true

@@ -1,0 +1,24 @@
+sim:
+  decision_dt_s: 0.1
+  control_dt_s: 0.01
+  steps: 600
+  stop_when_all_md_visited: false
+  service_require_los: false
+  epsilon: 0.2
+  max_speed_m_s: 20.0
+  max_accel_m_s2: 6.0
+  reach_threshold_m: 10.0
+  hover_power_w: 180.0
+  move_power_coeff: 12.0
+  initial_altitude_margin_m: 20.0
+  recovery_altitude_margin_m: 20.0
+  reroute_altitude_margin_m: 15.0
+  flyover_altitude_margin_m: 20.0
+  # Prefer horizontal service reach checks to avoid false "unvisited" when altitude is clamped by safety logic.
+  service_radius_m: 80.0
+  target_policy: nearest_unserved
+  target_max_steps: 0
+  target_skip_steps: 0
+  rl_reward_scale: 1.0
+  rl_collision_penalty: 50.0
+  init_pos_attempts: 1000

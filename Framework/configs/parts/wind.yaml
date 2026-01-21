@@ -1,0 +1,19 @@
+wind:
+  enabled: true
+  model: steady
+  speed_mean_m_s: 2.0
+  speed_std_m_s: 0.4
+  direction_deg: 45.0
+  direction_std_deg: 5.0
+  gust_period_s: 4.0
+  gust_scale: 0.4
+  vertical_scale: 0.05
+  accel_gain: 0.2
+  spatial_scale_m: 300.0
+  spatial_variation: 0.25
+  direction_variation_deg: 10.0
+  vertical_shear_strength: 0.1
+  vertical_shear_ref_m: 120.0
+  max_speed_m_s: 5.0
+  seed: 1234
+  apply_to: both

@@ -1,0 +1,55 @@
+# Isaac showcase config (official lightweight environment stage; no asset redistribution)
+#
+# Goal: fast, reproducible M1.5 capture with a slightly richer environment than the infinite grid.
+# This uses the official Grid "gridroom_black" stage (public HTTPS URL; no local assets root required).
+
+sim:
+  headless: true
+  physics_dt_s: 0.0166666667   # ~60Hz
+  rendering_dt_s: 0.0166666667
+  steps: 240
+  seed: 0
+  auto_select_gpu: true
+  prefer_high_gpu: true
+  limit_cpu_threads: 16
+
+scene:
+  stage_usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Environments/Grid/gridroom_black.usd"
+
+uav:
+  # Prefer the official quadcopter USD for high-quality visuals (public HTTPS; no local assets root needed).
+  usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+  prim_path: "/World/UAV"
+  center_on_stage_bbox: true
+  altitude_m: 1.8
+  radius_m: 4.0
+  period_s: 7.0
+  scale: 1.8
+
+render:
+  add_lighting_if_missing: true
+  use_hdri: true
+  dome_intensity: 500.0
+  sun_intensity: 9000.0
+  sun_color: [1.0, 0.98, 0.95]
+  sun_direction: [0.2, 0.4, -1.0]
+
+capture:
+  enabled: true
+  backend: replicator
+  resolution: [1920, 1080]
+  every_n_steps: 1
+  warmup_steps: 30
+  screenshot_step: 120
+  camera:
+    offset_m: [-10.0, -10.0, 6.0]
+    up: [0.0, 0.0, 1.0]
+    focal_length_mm: 18.0
+    min_height_m: 1.5
+    target_offset_m: [0.0, 0.0, -0.5]
+    los_check: false
+  quality:
+    min_mean: 5.0
+    max_mean: 245.0
+    min_std: 5.0
+    min_edge: 1.0

@@ -1,0 +1,52 @@
+# Minimal Isaac Sim config (open-source friendly)
+
+sim:
+  headless: true
+  physics_dt_s: 0.01
+  rendering_dt_s: 0.01
+  steps: 600
+  seed: 1234
+
+asset:
+  # primitive | nvidia_quadcopter
+  mode: primitive
+  # Used only when mode == nvidia_quadcopter.
+  nvidia_relative_usd: "/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+
+uav:
+  prim_path: "/World/UAV"
+  body_prim_path: "/World/UAV/body"
+  # Paper Table 5 (example). Tune as needed.
+  mass_kg: 50.0
+  inertia_xx: 5.5
+  inertia_yy: 5.5
+  inertia_zz: 10.0
+  arm_length_m: 1.15
+  gravity_m_s2: 9.81
+  # Thrust/torque coefficients (placeholder; used in thrust = kf * omega^2)
+  # NOTE: omega is rad/s inside the script.
+  kf: 0.001242
+  km: 0.0
+  omega_unit: rpm
+  omega_min: 200.0
+  omega_max: 5000.0
+
+disturbance:
+  wind:
+    enabled: false
+    # world-frame wind accel proxy: a_wind = gain * (wind_vel - vel)
+    wind_vel_m_s: [0.0, 0.0, 0.0]
+    accel_gain: 0.2
+  latency:
+    enabled: false
+    latency_ms: 0.0
+  vibration:
+    enabled: false
+    # torque noise std (N*m), applied in body frame
+    torque_noise_std: 0.0
+
+logging:
+  write_timeseries_jsonl: true
+  timeseries_name: "timeseries.jsonl"
+  summary_name: "summary.json"
+

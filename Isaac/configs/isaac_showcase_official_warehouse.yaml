@@ -1,0 +1,57 @@
+# Isaac showcase config (official environment stage; no asset redistribution)
+#
+# This config references a public, official Omniverse content URL (HTTPS) so it does not
+# depend on a local Nucleus/asset-root setup. Do NOT commit any downloaded USD/texture.
+
+sim:
+  headless: true
+  physics_dt_s: 0.0166666667   # ~60Hz
+  rendering_dt_s: 0.0166666667
+  steps: 240
+  seed: 0
+  auto_select_gpu: true
+  prefer_high_gpu: true
+  limit_cpu_threads: 16
+
+scene:
+  # When set, the showcase runner will `open_stage()` this USD and skip procedural env creation.
+  #
+  # NOTE: `warehouse_with_forklifts.usd` is very heavyweight on first load (many textures/materials).
+  # Use `warehouse.usd` as a faster official baseline; switch to heavier stages only when needed.
+  stage_usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Environments/Simple_Warehouse/warehouse.usd"
+
+uav:
+  # Prefer the official quadcopter USD for high-quality visuals (public HTTPS; no local assets root needed).
+  usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+  prim_path: "/World/UAV"
+  center_on_stage_bbox: true
+  altitude_m: 2.5
+  radius_m: 6.0
+  period_s: 7.0
+  scale: 1.8
+
+render:
+  # For official stages, lighting usually ships with the USD; we keep these fields for compatibility.
+  use_hdri: false
+  dome_intensity: 400.0
+  sun_intensity: 8000.0
+
+capture:
+  enabled: true
+  backend: replicator
+  resolution: [1920, 1080]
+  every_n_steps: 1
+  warmup_steps: 30
+  screenshot_step: 120
+  camera:
+    offset_m: [-16.0, -16.0, 8.0]
+    up: [0.0, 0.0, 1.0]
+    focal_length_mm: 18.0
+    min_height_m: 1.5
+    target_offset_m: [0.0, 0.0, -0.5]
+    los_check: false
+  quality:
+    min_mean: 5.0
+    max_mean: 245.0
+    min_std: 5.0
+    min_edge: 1.0

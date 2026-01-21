@@ -1,0 +1,16 @@
+include:
+  - parts/world.yaml
+  - parts/sim.yaml
+  - parts/wind.yaml
+  - parts/dynamics.yaml
+  - parts/control.yaml
+  - parts/fuzzy_rules.yaml
+  - parts/comm.yaml
+  - parts/tasks.yaml
+  - parts/energy.yaml
+  - parts/delay.yaml
+  - parts/offload.yaml
+  - parts/cloud.yaml
+  - parts/resource.yaml
+  - parts/fear_ddqn.yaml
+  - parts/baseline.yaml

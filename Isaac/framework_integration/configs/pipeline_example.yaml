@@ -1,0 +1,30 @@
+# Example pipeline spec for Framework → Isaac replay planning.
+framework:
+  # One of the following is required:
+  # - trajectory_json: ../Framework/runs/<run_id>/trajectory.json
+  # - timeseries_parquet: ../Framework/runs/<run_id>/timeseries.parquet
+  timeseries_parquet: ../Framework/runs/<run_id>/timeseries.parquet
+
+export_trajectory:
+  every: 2
+  max_points: 4000
+
+mapping:
+  scale_xy: 1.0
+  scale_z: 1.0
+  x_offset_m: 0.0
+  y_offset_m: 0.0
+  z_offset_m: 0.0
+
+isaac_replay:
+  headless: true
+  dt_s: 0.05
+  max_steps: 0
+  output_root: runs_isaac
+  name: fw_replay
+  capture:
+    enabled: false
+    every_n_steps: 5
+    resolution: [640, 360]
+    strict: false
+

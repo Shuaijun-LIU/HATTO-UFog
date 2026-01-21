@@ -1,0 +1,60 @@
+# Isaac showcase config (official lightweight environment stage; no asset redistribution)
+#
+# Purpose: fast, reproducible M1.5 capture using official Omniverse content via HTTPS URL.
+# This environment is much lighter than the full warehouse scenes and should load quickly.
+#
+# Policy: do NOT commit any downloaded USD/texture/cache.
+
+sim:
+  headless: true
+  physics_dt_s: 0.0166666667   # ~60Hz
+  rendering_dt_s: 0.0166666667
+  steps: 240
+  seed: 0
+  auto_select_gpu: true
+  prefer_high_gpu: true
+  limit_cpu_threads: 16
+
+scene:
+  # Official stage (public HTTPS URL; no local assets root required).
+  stage_usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Environments/Grid/default_environment.usd"
+
+uav:
+  # Prefer the official quadcopter USD for high-quality visuals (public HTTPS; no local assets root needed).
+  usd: "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+  prim_path: "/World/UAV"
+  center_on_stage_bbox: true
+  altitude_m: 2.0
+  radius_m: 5.5
+  period_s: 7.0
+  scale: 1.8
+
+render:
+  # Grid env is lightweight; add lighting + HDRI for a "real" look.
+  add_lighting_if_missing: true
+  use_hdri: true
+  dome_intensity: 350.0
+  sun_intensity: 9000.0
+  sun_color: [1.0, 0.98, 0.95]
+  sun_direction: [0.2, 0.4, -1.0]
+
+capture:
+  enabled: true
+  backend: replicator
+  resolution: [1920, 1080]
+  every_n_steps: 1
+  warmup_steps: 30
+  screenshot_step: 120
+  camera:
+    # Overview shot: show both UAV + environment context.
+    offset_m: [-12.0, -12.0, 6.5]
+    up: [0.0, 0.0, 1.0]
+    focal_length_mm: 18.0
+    min_height_m: 1.5
+    target_offset_m: [0.0, 0.0, -0.5]
+    los_check: false
+  quality:
+    min_mean: 5.0
+    max_mean: 245.0
+    min_std: 5.0
+    min_edge: 1.0

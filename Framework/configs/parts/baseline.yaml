@@ -1,0 +1,91 @@
+baseline:
+  name: acs
+  params:
+    ants: 30
+    iterations: 40
+    alpha: 1.0
+    beta: 2.0
+    rho: 0.2
+  presets:
+    acs:
+      ants: 30
+      iterations: 40
+      alpha: 1.0
+      beta: 2.0
+      rho: 0.2
+      reachable_candidates: 0
+      waypoint_reach_m: 8.0
+    acs_ds:
+      ants: 30
+      iterations: 40
+      alpha: 1.0
+      beta: 2.0
+      rho: 0.2
+      segment_step_m: 2.0
+      reachable_candidates: 0
+      waypoint_reach_m: 8.0
+      replan_interval_steps: 1
+      safety_samples: 30
+      safety_radius_m: 120.0
+      safety_weight: 1.0
+      backtrack_steps: 4
+      backtrack_distance_m: 0.0
+      safety_drop_ratio: 0.5
+      max_stale_steps: 25
+      early_iter_ratio: 0.33
+      early_stale_steps: 25
+      safety_angle_deg: 90.0
+      safety_sample_nodes: 0
+      pheromone_init: 1.0
+    cps_aco:
+      alpha: 1.0
+      beta: 2.0
+      delta: 0.2
+      epsilon: 0.2
+      mu: 4.0
+      ants: 30
+      iterations: 40
+      sa_temp: 1.0
+      sa_temp_min: 0.05
+      sa_temp_decay: 0.95
+      lambda_len: 1.0
+      lambda_threat: 1.0
+      lambda_const: 1.0
+      threat_buffer_m: 5.0
+      threat_near_penalty: 10.0
+      threat_far_scale: 1.0
+      alt_jump_threshold_m: 20.0
+      reachable_candidates: 0
+      waypoint_reach_m: 8.0
+    ga_sca:
+      population: 40
+      generations: 50
+      elite: 2
+      mutation: 0.2
+      tournament: 3
+      sca_iters: 80
+      threat_weight: 20.0
+      goal_reach_m: 8.0
+      waypoint_reach_m: 8.0
+      max_targets: 50
+    td3:
+      obs_dim: 10
+      act_dim: 3
+      hidden: 256
+      action_noise: 0.0
+      step_scale_m: 10.0
+      device: cpu
+      steps: 20000
+      start_steps: 1000
+      update_after: 1000
+      update_every: 50
+      batch_size: 128
+      gamma: 0.99
+      polyak: 0.995
+      act_noise: 0.1
+      noise_clip: 0.3
+      policy_delay: 2
+      actor_lr: 1.0e-3
+      critic_lr: 1.0e-3
+      buffer_size: 200000
+      seed: 1234

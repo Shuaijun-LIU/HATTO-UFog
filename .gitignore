@@ -1,0 +1,127 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments (only at root level)
+venv/
+env/
+ENV/
+.venv/
+# But allow code directories named env
+!**/framework/env/
+!**/src/env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Framework internal documentation (not for public repo)
+Framework/ISSUE_LOG.md
+Framework/RUN_ISSUES_SUMMARY.md
+Framework/MD_SERVICE_REACHABILITY_FIX_GUIDE.md
+Framework/PAPER_SETTINGS_PARAM_AUDIT.md
+Framework/README_UPDATE_AND_EXAMPLES_GUIDE.md
+Framework/FRAMEWORK_IMPLEMENTATION_PLAN.md
+
+# Project internal documentation (not for public repo)
+project/
+
+# Framework run outputs
+Framework/runs/
+
+# Framework showcase output folders
+# Note: Final curated media assets are kept in Framework/example/ instead
+Framework/showcase/tmp/
+Framework/showcase/media/
+
+# Framework curated showcase media (keep small derived versions)
+Framework/example/media/*.mp4
+!Framework/example/media/*__web.mp4
+
+# AirSim run outputs and large binaries (do not commit)
+AirSim/runs_airsim/
+AirSim/_runtime_settings/
+
+# AirSim binary environments (do not commit; users download locally)
+AirSim/envs/*
+!AirSim/envs/README.md
+
+# Project tools (do not commit)
+tools/
+
+# AirSim documentation (only keep README.md for public repo)
+AirSim/airsim_experiment_plan.md
+AirSim/showcase_assets.md
+AirSim/example/README.md
+AirSim/framework_integration/PLAN.md
+AirSim/vendor/airsim/upstream.md
+AirSim/*.md
+!AirSim/README.md
+AirSim/requirements.txt
+
+# AirSim curated demo assets (intentionally kept in-repo)
+# Note: MP4/GIF can be large; remove AirSim/example/ if need a code-only distribution
+# AirSim/example/
+
+# AirSim example media: keep small derived versions
+AirSim/example/**/video.mp4
+AirSim/example/**/video.gif
+!AirSim/example/**/video__web.mp4
+!AirSim/example/**/video.webp
+
+# docs/ site: only publish the smaller variants
+docs/static/images/*.gif
+!docs/static/images/*__small.gif
+# Explicitly include these specific GIF files
+!docs/static/images/path_side_by_side__small.gif
+!docs/static/images/atc_side_by_side__small.gif
+docs/static/images/*side_by_side*.webp
+
+# Isaac run outputs, local assets, and external refs (do not commit; open-source users fetch locally)
+Isaac/runs_isaac/
+Isaac/assets/
+Isaac/external/
+Isaac/framework_integration/plans_isaac/
+
+# Isaac media artifacts: only publish curated items under `Isaac/example/`
+Isaac/**/*.mp4
+Isaac/**/*.png
+Isaac/**/*.gif
+Isaac/**/*.webp
+
+# Isaac example media (publish optimized artifacts only)
+Isaac/example/**
+Isaac/example/*.mp4
+!Isaac/example/*__web.mp4
+!Isaac/example/*.png
+!Isaac/example/*.webp
+
+# Isaac documentation
+# - Only publish `Isaac/README.md` (keep the rest local/internal)
+Isaac/*.md
+!Isaac/README.md

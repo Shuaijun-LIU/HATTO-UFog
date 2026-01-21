@@ -1,0 +1,27 @@
+# Isaac Sim: NVIDIA quadcopter asset smoke (no custom controller)
+#
+# Requires Isaac Sim assets/Nucleus to resolve:
+# - default relative USD: /Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd
+
+sim:
+  headless: true
+  physics_dt_s: 0.01
+  rendering_dt_s: 0.01
+  steps: 240
+  seed: 1
+
+asset:
+  nvidia_relative_usd: "/Isaac/Robots/IsaacSim/Quadcopter/quadcopter.usd"
+
+uav:
+  prim_path: "/World/UAV"
+  # Leave empty to auto-discover the first rigid body under prim_path.
+  body_prim_path: ""
+
+capture:
+  enabled: false
+
+logging:
+  timeseries_name: "timeseries.jsonl"
+  summary_name: "summary.json"
+

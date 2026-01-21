@@ -1,0 +1,9 @@
+offload:
+  mode: heuristic
+  mixed_ratio_uav: 1.0
+  mixed_ratio_md: 0.0
+  mixed_ratio_dc: 0.0
+  heuristic_distance_m: 450.0
+  heuristic_size_bits: 1.0e7
+  heuristic_dc_size_bits: 2.0e7
+  heuristic_blocked_to_md: false
