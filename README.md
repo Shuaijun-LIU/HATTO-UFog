@@ -1,6 +1,6 @@
 <div align="center">
-  <h1 style="white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; margin: 0;">
-    <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="100" style="vertical-align: middle;">
+  <h1>
+    <img src="docs/static/images/logo.png" alt="HATTO-UFog logo" width="20" style="vertical-align: middle; margin-right: 8px;">
     HATTO-UFog: Holistic Attitude–Trajectory–Task Optimization for UAV-Assisted Fog Computing
   </h1>
 </div>
