@@ -305,12 +305,15 @@
           <div class="column is-five-sixths">
             <h2 class="title is-3 has-text-left">System Overview</h2>
             <div class="columns is-vcentered">
-              <div class="column is-6">
+              <div class="column is-8">
                 <div class="content">
                   <p class="has-text-justified">
                     We study a UAV-assisted fog computing system where a UAV acts as both a mobile computing node and a communication relay.
                     The framework jointly optimizes attitude control, 3D trajectory planning, task assignment, and resource allocation to reduce
                     overall latency and energy consumption under safety and terrain constraints.
+	                  </p>
+	                  <p class="has-text-justified">
+	                    The system consists of a quadrotor UAV, a remote data center in the cloud, and multiple mobile IoT devices distributed in a three-dimensional space. Each computational task can be executed locally on the IoT device, processed in the fog layer by the UAV, or offloaded to the central cloud, with the execution location dynamically determined based on real-time network conditions, energy constraints, and task characteristics. The system operates in discrete timeslots, with tasks arriving dynamically from IoT devices following Poisson processes, requiring adaptive decision-making that accounts for the UAV's battery capacity, maximum speed and altitude constraints, and the varying communication channel conditions.
 	                  </p>
 	                  <ul class="has-text-left">
 	                    <li>Cross-layer coupling: attitude control, trajectory planning, and fog computing decisions affect each other.</li>
