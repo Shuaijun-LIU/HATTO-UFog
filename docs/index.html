@@ -319,12 +319,12 @@
 	                  </ul>
 	                </div>
 	              </div>
-	              <div class="column is-6">
-	                <figure class="image hf-figure">
-	                  <img class="hf-media" src="static/images/paper/network.png" alt="UAV-assisted fog computing system model">
-	                </figure>
-	                <p class="hf-caption">Figure 1. UAV-assisted fog computing system model.</p>
-	              </div>
+              <div class="column is-6">
+                <figure class="image hf-figure hf-figure-portrait">
+                  <img class="hf-media" src="static/images/paper/network.png" alt="UAV-assisted fog computing system model">
+                </figure>
+                <p class="hf-caption">Figure 1. UAV-assisted fog computing system model.</p>
+              </div>
 	            </div>
 	          </div>
 	        </div>
@@ -430,11 +430,9 @@
               <div class="column is-4">
                 <div class="card hf-card">
                   <div class="card-image">
-                    <div class="hf-media-frame">
-                      <video class="hf-video" controls muted loop playsinline preload="metadata">
-                        <source src="static/media/framework/video__web.mp4" type="video/mp4">
-                      </video>
-                    </div>
+                    <video class="hf-video hf-video-inline" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/framework/video__web.mp4" type="video/mp4">
+                    </video>
                   </div>
                   <div class="card-content">
                     <p class="subtitle is-6 has-text-centered">Video 1. Web-based framework demo (fast iteration and sanity checks).</p>
@@ -444,11 +442,9 @@
               <div class="column is-4">
                 <div class="card hf-card">
                   <div class="card-image">
-                    <div class="hf-media-frame">
-                      <video class="hf-video" controls muted loop playsinline preload="metadata">
-                        <source src="static/media/airsim/airsimnh_video__web.mp4" type="video/mp4">
-                      </video>
-                    </div>
+                    <video class="hf-video hf-video-inline" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/airsim/airsimnh_video__web.mp4" type="video/mp4">
+                    </video>
                   </div>
                   <div class="card-content">
                     <p class="subtitle is-6 has-text-centered">Video 2. AirSim (AirSimNH) outdoor environment validation.</p>
@@ -458,11 +454,9 @@
               <div class="column is-4">
                 <div class="card hf-card">
                   <div class="card-image">
-                    <div class="hf-media-frame">
-                      <video class="hf-video" controls muted loop playsinline preload="metadata">
-                        <source src="static/media/isaac/video__web.mp4" type="video/mp4">
-                      </video>
-                    </div>
+                    <video class="hf-video hf-video-inline" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/isaac/video__web.mp4" type="video/mp4">
+                    </video>
                   </div>
                   <div class="card-content">
                     <p class="subtitle is-6 has-text-centered">Video 3. Isaac Sim showcase (outdoor, high-quality rendering).</p>
@@ -504,28 +498,22 @@
                   <p class="hf-caption">Figure 6. Web-based demo for attitude control (side-by-side).</p>
                 </div>
 
-                <div class="column is-4">
-                  <div class="hf-media-frame">
-                    <video class="hf-video" controls muted loop playsinline preload="metadata">
-                      <source src="static/media/airsim/abandonedpark_video__web.mp4" type="video/mp4">
-                    </video>
-                  </div>
+                <div class="column is-12">
+                  <video class="hf-video hf-video-wide" controls muted loop playsinline preload="metadata">
+                    <source src="static/media/airsim/abandonedpark_video__web.mp4" type="video/mp4">
+                  </video>
                   <p class="hf-caption">Video 4. AirSim AbandonedPark scene.</p>
                 </div>
-                <div class="column is-4">
-                  <div class="hf-media-frame">
-                    <video class="hf-video" controls muted loop playsinline preload="metadata">
-                      <source src="static/media/airsim/landscapemountains_video__web.mp4" type="video/mp4">
-                    </video>
-                  </div>
+                <div class="column is-12">
+                  <video class="hf-video hf-video-wide" controls muted loop playsinline preload="metadata">
+                    <source src="static/media/airsim/landscapemountains_video__web.mp4" type="video/mp4">
+                  </video>
                   <p class="hf-caption">Video 5. AirSim LandscapeMountains scene.</p>
                 </div>
-                <div class="column is-4">
-                  <div class="hf-media-frame">
-                    <video class="hf-video" controls muted loop playsinline preload="metadata">
-                      <source src="static/media/airsim/blocks_video__web.mp4" type="video/mp4">
-                    </video>
-                  </div>
+                <div class="column is-12">
+                  <video class="hf-video hf-video-wide" controls muted loop playsinline preload="metadata">
+                    <source src="static/media/airsim/blocks_video__web.mp4" type="video/mp4">
+                  </video>
                   <p class="hf-caption">Video 6. AirSim Blocks scene.</p>
                 </div>
               </div>
@@ -566,12 +554,6 @@ python Isaac/scripts/postprocess_video.py \\
               </div>
               <div class="column is-5">
                 <div class="content">
-                  <p class="has-text-left"><strong>Asset policy:</strong></p>
-                  <ul class="has-text-left">
-                    <li>Do not commit AirSim binary environments under <code>AirSim/envs/</code>.</li>
-                    <li>Do not commit Isaac/Nucleus assets; use URLs or local fetch steps instead.</li>
-                    <li>Only curated media is kept small for the website and examples.</li>
-                  </ul>
                   <p class="has-text-left">
                     The <strong>Paper</strong> button at the top links to <code>static/pdfs/paper.pdf</code> for convenient reading.
                   </p>
