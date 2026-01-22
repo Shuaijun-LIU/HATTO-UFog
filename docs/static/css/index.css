@@ -43,7 +43,9 @@ body {
 #method .hf-media,
 #results .hf-media,
 #simulators .hf-media,
-#simulators .hf-video {
+#simulators .hf-video,
+#demos .hf-media,
+#demos .hf-video {
   max-width: 100%;
   width: auto;
   height: auto;
@@ -52,10 +54,40 @@ body {
   margin-right: auto;
 }
 
+#overview .hf-media-frame,
+#method .hf-media-frame,
+#results .hf-media-frame,
+#simulators .hf-media-frame,
+#demos .hf-media-frame {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: #0b1220;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#simulators .hf-media-frame,
+#demos .hf-media-frame {
+  background: #0b1220;
+}
+
+#simulators .hf-media-frame video,
+#demos .hf-media-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 #overview .hf-figure,
 #method .hf-figure,
 #results .hf-figure,
-#simulators .hf-figure {
+#simulators .hf-figure,
+#demos .hf-figure {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
@@ -68,9 +100,9 @@ body {
   object-fit: contain;
 }
 
-#simulators .hf-video {
-  background: #0b1220;
-  border-radius: var(--border-radius-lg);
+#demos .hf-media {
+  max-height: 440px;
+  object-fit: contain;
 }
 
 #results .hf-card,
@@ -79,6 +111,26 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
+}
+
+#results .hf-card,
+#simulators .hf-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#results .hf-card .card-image,
+#simulators .hf-card .card-image {
+  flex: 0 0 auto;
+}
+
+#results .hf-card .card-content,
+#simulators .hf-card .card-content {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #results .card-content,
@@ -93,10 +145,19 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+#repro .hf-code code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 768px) {
   #results .hf-media,
   #simulators .hf-media {
     max-height: 260px;
+  }
+
+  #demos .hf-media {
+    max-height: 300px;
   }
 }
 
@@ -849,4 +910,3 @@ a:focus {
     box-shadow: none !important;
   }
 }
-

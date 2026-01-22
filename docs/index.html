@@ -428,13 +428,15 @@
               </p>
             </div>
 
-            <div class="columns is-multiline">
+            <div class="columns is-variable is-6 is-multiline">
               <div class="column is-4">
                 <div class="card hf-card">
                   <div class="card-image">
-                    <video class="hf-media hf-video" controls muted loop playsinline preload="metadata">
-                      <source src="static/media/framework/video__web.mp4" type="video/mp4">
-                    </video>
+                    <div class="hf-media-frame">
+                      <video class="hf-video" controls muted loop playsinline preload="metadata">
+                        <source src="static/media/framework/video__web.mp4" type="video/mp4">
+                      </video>
+                    </div>
                   </div>
                   <div class="card-content">
                     <p class="subtitle is-6 has-text-centered">Framework (WebGL): fast iteration and end-to-end pipeline sanity checks</p>
@@ -444,9 +446,11 @@
               <div class="column is-4">
                 <div class="card hf-card">
                   <div class="card-image">
-                    <video class="hf-media hf-video" controls muted loop playsinline preload="metadata">
-                      <source src="static/media/airsim/airsimnh_video__web.mp4" type="video/mp4">
-                    </video>
+                    <div class="hf-media-frame">
+                      <video class="hf-video" controls muted loop playsinline preload="metadata">
+                        <source src="static/media/airsim/airsimnh_video__web.mp4" type="video/mp4">
+                      </video>
+                    </div>
                   </div>
                   <div class="card-content">
                     <p class="subtitle is-6 has-text-centered">AirSim (AirSimNH): outdoor, photorealistic environment validation</p>
@@ -456,9 +460,11 @@
               <div class="column is-4">
                 <div class="card hf-card">
                   <div class="card-image">
-                    <video class="hf-media hf-video" controls muted loop playsinline preload="metadata">
-                      <source src="static/media/isaac/video__web.mp4" type="video/mp4">
-                    </video>
+                    <div class="hf-media-frame">
+                      <video class="hf-video" controls muted loop playsinline preload="metadata">
+                        <source src="static/media/isaac/video__web.mp4" type="video/mp4">
+                      </video>
+                    </div>
                   </div>
                   <div class="card-content">
                     <p class="subtitle is-6 has-text-centered">Isaac Sim: high-quality rendering with official outdoor content</p>
@@ -467,27 +473,54 @@
               </div>
             </div>
 
-            <div class="columns is-vcentered" style="margin-top: 0.75rem;">
-              <div class="column is-7">
-                <div class="content">
-                  <ul class="has-text-left">
-                    <li><strong>Framework</strong>: reproducible planner/control visualization with lightweight runs.</li>
-                    <li><strong>AirSim</strong>: high-fidelity outdoor scenes; supports two lines (pose-driven mainline and dynamics auxline).</li>
-                    <li><strong>Isaac Sim</strong>: robust headless rendering pipeline; assets referenced by URL (no redistribution).</li>
-                  </ul>
-                </div>
+            <div class="content" style="margin-top: 0.75rem;">
+              <ul class="has-text-left">
+                <li><strong>Framework</strong>: reproducible planner/control visualization with lightweight runs.</li>
+                <li><strong>AirSim</strong>: high-fidelity outdoor scenes; supports two lines (pose-driven mainline and dynamics auxline).</li>
+                <li><strong>Isaac Sim</strong>: robust headless rendering pipeline; assets referenced by URL (no redistribution).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demos">
+      <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+          <div class="column is-five-sixths">
+            <h2 class="title is-3 has-text-left">Demos</h2>
+
+            <div class="content">
+              <h3 class="title is-4 has-text-left">Web-based Demo for Trajectory Planning</h3>
+              <figure class="image hf-figure">
+                <img class="hf-media" src="static/images/path_side_by_side__small.gif" alt="Web-based trajectory planning demo (side-by-side)">
+              </figure>
+
+              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">Web-based Demo for Attitude Control</h3>
+              <figure class="image hf-figure">
+                <img class="hf-media" src="static/images/atc_side_by_side__small.gif" alt="Web-based attitude control demo (side-by-side)">
+              </figure>
+
+              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">AirSim - AbandonedPark Scene</h3>
+              <div class="hf-media-frame">
+                <video class="hf-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/media/airsim/abandonedpark_video__web.mp4" type="video/mp4">
+                </video>
               </div>
-              <div class="column is-5">
-                <div class="card hf-card">
-                  <div class="card-image">
-                    <figure class="image hf-figure">
-                      <img class="hf-media" src="static/images/example/isaac_screenshot.png" alt="Isaac Sim outdoor showcase screenshot">
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="subtitle is-6 has-text-centered">Isaac Sim screenshot</p>
-                  </div>
-                </div>
+
+              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">AirSim - LandscapeMountains Scene</h3>
+              <div class="hf-media-frame">
+                <video class="hf-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/media/airsim/landscapemountains_video__web.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">AirSim - Blocks Scene</h3>
+              <div class="hf-media-frame">
+                <video class="hf-video" controls muted loop playsinline preload="metadata">
+                  <source src="static/media/airsim/blocks_video__web.mp4" type="video/mp4">
+                </video>
               </div>
             </div>
           </div>
@@ -516,8 +549,12 @@ bash AirSim/scripts/download_env_airsimnh.sh
 
 # Isaac Sim (install separately; run via python.sh)
 export ISAACSIM_ROOT=/path/to/isaacsim
-$ISAACSIM_ROOT/python.sh Isaac/scripts/run_isaac_showcase.py --config Isaac/configs/isaac_showcase_rivermark_outdoor_demo_debug.yaml --output Isaac/runs_isaac --name showcase_rivermark_outdoor
-python Isaac/scripts/postprocess_video.py --run_dir Isaac/runs_isaac/&lt;run_id&gt;__&lt;slug&gt;</code></pre>
+$ISAACSIM_ROOT/python.sh Isaac/scripts/run_isaac_showcase.py \\
+  --config Isaac/configs/isaac_showcase_rivermark_outdoor_demo_debug.yaml \\
+  --output Isaac/runs_isaac \\
+  --name showcase_rivermark_outdoor
+python Isaac/scripts/postprocess_video.py \\
+  --run_dir Isaac/runs_isaac/&lt;run_id&gt;__&lt;slug&gt;</code></pre>
                 </div>
               </div>
               <div class="column is-5">
