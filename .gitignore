@@ -102,6 +102,17 @@ docs/static/images/*.gif
 !docs/static/images/atc_side_by_side__small.gif
 docs/static/images/*side_by_side*.webp
 
+# docs/ site: unused media files (not referenced in index.html)
+docs/static/images/logo_dark.png
+docs/static/images/Network.pdf
+docs/static/images/paper/ablation.png
+docs/static/images/path_atc_static.png
+docs/static/images/path_planning_static.png
+docs/static/images/sim_airsim.png
+docs/static/images/sim_results_control.png
+docs/static/images/sim_results_path.png
+docs/static/images/example/isaac_screenshot.png
+
 # Isaac run outputs, local assets, and external refs (do not commit; open-source users fetch locally)
 Isaac/runs_isaac/
 Isaac/assets/
