@@ -311,24 +311,25 @@
                     We study a UAV-assisted fog computing system where a UAV acts as both a mobile computing node and a communication relay.
                     The framework jointly optimizes attitude control, 3D trajectory planning, task assignment, and resource allocation to reduce
                     overall latency and energy consumption under safety and terrain constraints.
-                  </p>
-                  <ul class="has-text-left">
-                    <li>Cross-layer coupling: control, mobility, and computation decisions affect each other.</li>
-                    <li>3D, terrain-aware planning: motion is constrained by safety and environment geometry.</li>
-                    <li>End-to-end objective: jointly minimize latency and energy with practical deployment considerations.</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="column is-6">
-                <figure class="image hf-figure">
-                  <img class="hf-media" src="static/images/paper/network.png" alt="UAV-assisted fog computing system model">
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+	                  </p>
+	                  <ul class="has-text-left">
+	                    <li>Cross-layer coupling: attitude control, trajectory planning, and fog computing decisions affect each other.</li>
+	                    <li>3D, terrain-aware planning: motion is constrained by safety and varying terrain elevations.</li>
+	                    <li>End-to-end objective: jointly minimize total latency and energy consumption.</li>
+	                  </ul>
+	                </div>
+	              </div>
+	              <div class="column is-6">
+	                <figure class="image hf-figure">
+	                  <img class="hf-media" src="static/images/paper/network.png" alt="UAV-assisted fog computing system model">
+	                </figure>
+	                <p class="hf-caption">Figure 1. UAV-assisted fog computing system model.</p>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </section>
 
     <section class="section hero is-light" id="method">
       <div class="container is-max-widescreen">
@@ -339,27 +340,28 @@
               <div class="column is-6">
                 <div class="content">
                   <p class="has-text-justified">
-                    Our holistic pipeline connects four interdependent modules. The output of each module feeds back into others, enabling
-                    end-to-end optimization from UAV attitude stability to safe 3D trajectory selection and task placement.
-                  </p>
-                  <ul class="has-text-left">
-                    <li><strong>ATC</strong>: FEAR-PID for robust quadrotor attitude control across flight phases.</li>
-                    <li><strong>Trajectory</strong>: ACS-DS with safety and decoupling mechanisms for reliable convergence.</li>
-                    <li><strong>Offloading</strong>: PSO-based decisions for where each task is executed.</li>
-                    <li><strong>Holistic feedback</strong>: cross-module coupling to improve global solutions.</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="column is-6">
-                <figure class="image hf-figure">
-                  <img class="hf-media" src="static/images/paper/flowchart.png" alt="Holistic optimization pipeline overview">
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+	                    Our holistic pipeline connects four interdependent modules. The output of each module feeds back into others, enabling
+	                    end-to-end optimization from UAV attitude stability to safe 3D trajectory selection and task placement.
+	                  </p>
+	                  <ul class="has-text-left">
+	                    <li><strong>Attitude control</strong>: FEAR-PID for robust quadrotor attitude control across flight phases.</li>
+	                    <li><strong>Trajectory planning</strong>: ACS-DS with safety value and decoupling mechanism for reliable convergence.</li>
+	                    <li><strong>Task assignment</strong>: PSO-based decisions for where each offloaded task is executed.</li>
+	                    <li><strong>Resource allocation</strong>: jointly optimized with task assignment under cross-module feedback.</li>
+	                  </ul>
+	                </div>
+	              </div>
+	              <div class="column is-6">
+	                <figure class="image hf-figure">
+	                  <img class="hf-media" src="static/images/paper/flowchart.png" alt="Holistic optimization pipeline overview">
+	                </figure>
+	                <p class="hf-caption">Figure 2. Holistic optimization pipeline overview.</p>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </section>
 
     <section class="section" id="results">
       <div class="container is-max-widescreen">
@@ -368,13 +370,21 @@
             <h2 class="title is-3 has-text-left">Key Results</h2>
             <div class="content">
               <p class="has-text-justified">
-                We report extensive simulation results demonstrating improvements in convergence behavior, latency, and energy consumption
-                compared to strong baselines.
+                We report extensive simulation results showing that the proposed holistic framework improves optimization convergence and
+                delivers better end-to-end performance under realistic UAV-assisted fog computing settings.
               </p>
+              <p class="has-text-justified">
+                The figures below highlight two representative outcomes: improved convergence behavior for trajectory planning, and reduced
+                energy consumption when coupling control, mobility, and computing decisions.
+              </p>
+              <ul class="has-text-left">
+                <li>Improved convergence stability compared to classical baselines.</li>
+                <li>Reduced energy consumption under comparable settings.</li>
+              </ul>
             </div>
 
             <div class="columns is-multiline">
-              <div class="column is-4">
+              <div class="column is-6">
                 <div class="card hf-card">
                   <div class="card-image">
                     <figure class="image hf-figure">
@@ -382,11 +392,11 @@
                     </figure>
                   </div>
                   <div class="card-content">
-                    <p class="subtitle is-6 has-text-centered">Convergence: faster and more reliable optimization</p>
+                    <p class="subtitle is-6 has-text-centered">Figure 3. Convergence comparison (optimization stability and speed).</p>
                   </div>
                 </div>
               </div>
-              <div class="column is-4">
+              <div class="column is-6">
                 <div class="card hf-card">
                   <div class="card-image">
                     <figure class="image hf-figure">
@@ -394,19 +404,7 @@
                     </figure>
                   </div>
                   <div class="card-content">
-                    <p class="subtitle is-6 has-text-centered">Energy: reduced energy consumption under realistic settings</p>
-                  </div>
-                </div>
-              </div>
-              <div class="column is-4">
-                <div class="card hf-card">
-                  <div class="card-image">
-                    <figure class="image hf-figure">
-                      <img class="hf-media" src="static/images/paper/ablation.png" alt="Ablation study">
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="subtitle is-6 has-text-centered">Ablation: contributions of key components</p>
+                    <p class="subtitle is-6 has-text-centered">Figure 4. Energy consumption comparison.</p>
                   </div>
                 </div>
               </div>
@@ -439,7 +437,7 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <p class="subtitle is-6 has-text-centered">Framework (WebGL): fast iteration and end-to-end pipeline sanity checks</p>
+                    <p class="subtitle is-6 has-text-centered">Video 1. Web-based framework demo (fast iteration and sanity checks).</p>
                   </div>
                 </div>
               </div>
@@ -453,7 +451,7 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <p class="subtitle is-6 has-text-centered">AirSim (AirSimNH): outdoor, photorealistic environment validation</p>
+                    <p class="subtitle is-6 has-text-centered">Video 2. AirSim (AirSimNH) outdoor environment validation.</p>
                   </div>
                 </div>
               </div>
@@ -467,7 +465,7 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <p class="subtitle is-6 has-text-centered">Isaac Sim: high-quality rendering with official outdoor content</p>
+                    <p class="subtitle is-6 has-text-centered">Video 3. Isaac Sim showcase (outdoor, high-quality rendering).</p>
                   </div>
                 </div>
               </div>
@@ -492,35 +490,44 @@
             <h2 class="title is-3 has-text-left">Demos</h2>
 
             <div class="content">
-              <h3 class="title is-4 has-text-left">Web-based Demo for Trajectory Planning</h3>
-              <figure class="image hf-figure">
-                <img class="hf-media" src="static/images/path_side_by_side__small.gif" alt="Web-based trajectory planning demo (side-by-side)">
-              </figure>
+              <div class="columns is-variable is-6 is-multiline">
+                <div class="column is-6">
+                  <figure class="image hf-figure">
+                    <img class="hf-media" src="static/images/path_side_by_side__small.gif" alt="Web-based trajectory planning demo (side-by-side)">
+                  </figure>
+                  <p class="hf-caption">Figure 5. Web-based demo for trajectory planning (side-by-side).</p>
+                </div>
+                <div class="column is-6">
+                  <figure class="image hf-figure">
+                    <img class="hf-media" src="static/images/atc_side_by_side__small.gif" alt="Web-based attitude control demo (side-by-side)">
+                  </figure>
+                  <p class="hf-caption">Figure 6. Web-based demo for attitude control (side-by-side).</p>
+                </div>
 
-              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">Web-based Demo for Attitude Control</h3>
-              <figure class="image hf-figure">
-                <img class="hf-media" src="static/images/atc_side_by_side__small.gif" alt="Web-based attitude control demo (side-by-side)">
-              </figure>
-
-              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">AirSim - AbandonedPark Scene</h3>
-              <div class="hf-media-frame">
-                <video class="hf-video" controls muted loop playsinline preload="metadata">
-                  <source src="static/media/airsim/abandonedpark_video__web.mp4" type="video/mp4">
-                </video>
-              </div>
-
-              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">AirSim - LandscapeMountains Scene</h3>
-              <div class="hf-media-frame">
-                <video class="hf-video" controls muted loop playsinline preload="metadata">
-                  <source src="static/media/airsim/landscapemountains_video__web.mp4" type="video/mp4">
-                </video>
-              </div>
-
-              <h3 class="title is-4 has-text-left" style="margin-top: 1.5rem;">AirSim - Blocks Scene</h3>
-              <div class="hf-media-frame">
-                <video class="hf-video" controls muted loop playsinline preload="metadata">
-                  <source src="static/media/airsim/blocks_video__web.mp4" type="video/mp4">
-                </video>
+                <div class="column is-4">
+                  <div class="hf-media-frame">
+                    <video class="hf-video" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/airsim/abandonedpark_video__web.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <p class="hf-caption">Video 4. AirSim AbandonedPark scene.</p>
+                </div>
+                <div class="column is-4">
+                  <div class="hf-media-frame">
+                    <video class="hf-video" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/airsim/landscapemountains_video__web.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <p class="hf-caption">Video 5. AirSim LandscapeMountains scene.</p>
+                </div>
+                <div class="column is-4">
+                  <div class="hf-media-frame">
+                    <video class="hf-video" controls muted loop playsinline preload="metadata">
+                      <source src="static/media/airsim/blocks_video__web.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <p class="hf-caption">Video 6. AirSim Blocks scene.</p>
+                </div>
               </div>
             </div>
           </div>
