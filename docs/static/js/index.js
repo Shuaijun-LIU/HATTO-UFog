@@ -92,6 +92,62 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Lazy load videos - only load video source when it enters viewport
+function setupLazyVideoLoading() {
+    const lazyVideos = document.querySelectorAll('video[data-src]');
+    
+    if (lazyVideos.length === 0) return;
+    
+    // Check if IntersectionObserver is supported
+    if (typeof IntersectionObserver === 'undefined') {
+        // Fallback: load all videos immediately for older browsers
+        lazyVideos.forEach(video => {
+            const videoSrc = video.getAttribute('data-src');
+            if (videoSrc) {
+                const source = document.createElement('source');
+                source.src = videoSrc;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                video.removeAttribute('data-src');
+                video.load();
+            }
+        });
+        return;
+    }
+    
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                const videoSrc = video.getAttribute('data-src');
+                
+                if (videoSrc && !video.src) {
+                    // Create source element and add to video
+                    const source = document.createElement('source');
+                    source.src = videoSrc;
+                    source.type = 'video/mp4';
+                    video.appendChild(source);
+                    
+                    // Remove data-src to prevent reloading
+                    video.removeAttribute('data-src');
+                    
+                    // Load the video
+                    video.load();
+                }
+                
+                // Stop observing this video
+                videoObserver.unobserve(video);
+            }
+        });
+    }, {
+        rootMargin: '50px' // Start loading 50px before video enters viewport
+    });
+    
+    lazyVideos.forEach(video => {
+        videoObserver.observe(video);
+    });
+}
+
 // Video carousel autoplay when in view
 function setupVideoCarouselAutoplay() {
     const carouselVideos = document.querySelectorAll('.results-carousel video');
@@ -137,6 +193,9 @@ $(document).ready(function() {
     var carousels = bulmaCarousel.attach('.carousel', options);
 	
     bulmaSlider.attach();
+    
+    // Setup lazy loading for videos
+    setupLazyVideoLoading();
     
     // Setup video autoplay for carousel
     setupVideoCarouselAutoplay();
