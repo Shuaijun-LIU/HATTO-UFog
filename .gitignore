@@ -103,7 +103,6 @@ docs/static/images/*.gif
 docs/static/images/*side_by_side*.webp
 
 # docs/ site: unused media files (not referenced in index.html)
-docs/static/images/logo_dark.png
 docs/static/images/Network.pdf
 docs/static/images/paper/ablation.png
 docs/static/images/path_atc_static.png
